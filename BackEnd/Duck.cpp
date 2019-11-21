@@ -1,24 +1,15 @@
 #include "duck.h"
 
-
 Duck::Duck() {
-	h = 20; //size of image
-	w = 20; //size of image
+	sound = "boloxi";
 }
 
-Duck::Duck(int x, int y) {
-	mX = x;
-	mY = y;
-	h = 20;
-	w = 20;
+Duck::Duck(int x, int y) : Animal(x,y) {
+	sound = "boloxi";
 }
 
-void Duck::draw() {
+void Duck::draw(int x, int y) {
 	//Front-end, this part is Dat's responsibility
 
 }
 
-
-void Duck::makeSound() {
-
-}

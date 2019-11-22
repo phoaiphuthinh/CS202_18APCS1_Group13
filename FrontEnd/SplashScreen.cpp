@@ -7,36 +7,52 @@ void SplashScreen(int x)
 	cout << "\t\t\t\t";
 	textcolor(14);
 	cout << "  RRRRRRRRRRRRRRRRR        OOOOOOOOO                 AAA               DDDDDDDDDDDDD        " << endl;
+	Sleep(100);
 	cout << "\t\t\t\t";
 	cout << "  R::::::::::::::::R     OO:::::::::OO              A:::A              D::::::::::::DDD     "<< endl;
+	Sleep(100);
 	cout << "\t\t\t\t";
 	cout << "  R::::::RRRRRR:::::R  OO:::::::::::::OO           A:::::A             D:::::::::::::::DD   "<< endl;
+	Sleep(100);
 	cout << "\t\t\t\t";
 	cout << "  RR:::::R     R:::::RO:::::::OOO:::::::O         A:::::::A            DDD:::::DDDDD:::::D  "<< endl;
+	Sleep(100);
 	cout << "\t\t\t\t";
 	cout << "    R::::R     R:::::RO::::::O   O::::::O        A:::::::::A             D:::::D    D:::::D "<< endl;
+	Sleep(100);
 	cout << "\t\t\t\t";
 	cout << "    R::::R     R:::::RO:::::O     O:::::O       A:::::A:::::A            D:::::D     D:::::D"<< endl;
+	Sleep(100);
 	cout << "\t\t\t\t";
 	cout << "    R::::RRRRRR:::::R O:::::O     O:::::O      A:::::A A:::::A           D:::::D     D:::::D"<< endl;
+	Sleep(100);
 	cout << "\t\t\t\t";
 	cout << "    R:::::::::::::RR  O:::::O     O:::::O     A:::::A   A:::::A          D:::::D     D:::::D"<< endl;
+	Sleep(100);
 	cout << "\t\t\t\t";
 	cout << "    R::::RRRRRR:::::R O:::::O     O:::::O    A:::::A     A:::::A         D:::::D     D:::::D"<< endl;
+	Sleep(100);
 	cout << "\t\t\t\t";
 	cout << "    R::::R     R:::::RO:::::O     O:::::O   A:::::AAAAAAAAA:::::A        D:::::D     D:::::D"<< endl;
+	Sleep(100);
 	cout << "\t\t\t\t";
 	cout << "    R::::R     R:::::RO:::::O     O:::::O  A:::::::::::::::::::::A       D:::::D     D:::::D"<< endl;
+	Sleep(100);
 	cout << "\t\t\t\t";
 	cout << "    R::::R     R:::::RO::::::O   O::::::O A:::::AAAAAAAAAAAAA:::::A      D:::::D    D:::::D "<< endl;
+	Sleep(100);
 	cout << "\t\t\t\t";
 	cout << "  RR:::::R     R:::::RO:::::::OOO:::::::OA:::::A             A:::::A   DDD:::::DDDDD:::::D  "<< endl;
+	Sleep(100);
 	cout << "\t\t\t\t";
 	cout << "  R::::::R     R:::::R OO:::::::::::::OOA:::::A               A:::::A  D:::::::::::::::DD   "<< endl;
+	Sleep(100);
 	cout << "\t\t\t\t";
 	cout << "  R::::::R     R:::::R   OO:::::::::OO A:::::A                 A:::::A D::::::::::::DDD     "<< endl;
+	Sleep(100);
 	cout << "\t\t\t\t";
 	cout << "  RRRRRRRR     RRRRRRR     OOOOOOOOO  AAAAAAA                   AAAAAAADDDDDDDDDDDDD  " <<endl;
+	Sleep(100);
 	
 	cout << endl << endl;
 
@@ -84,11 +100,14 @@ void SplashScreen(int x)
 	cout << "\n";
 	cout << "\t\t\t\t\t\t\t     ";
 
+
+	for (int i = 0; i < 20; i++)
+	{
+		gotoXY(10, 37 + i);
+		cout << "                                                                                                    ";
+	}
 	//cout << "END
 	system("pause");
 	system("cls");
-
-
-
 
 }

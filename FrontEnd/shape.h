@@ -4,7 +4,9 @@
 #include <iostream>
 using namespace std;
 
-void car();
-void duck();
-void cat();
+void drawcar(int x,int y,int d);
+void drawduck(int x, int y, int d);
+void drawufo(int x, int y, int d);
+void drawpig(int x, int y, int d);
+void drawboder();
 #endif 

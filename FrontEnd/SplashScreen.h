@@ -3,7 +3,9 @@
 
 #include <iostream>
 #include "helper.h"
+#include "shape.h"
 using namespace std;
 
-void SplashScreen(int x);
+void SplashScreen();
+int ChoosingMenu(int x, int firstline, int lastline);
 #endif 

@@ -1,6 +1,6 @@
 #include "SplashScreen.h"
 
-void SplashScreen(int x)
+void SplashScreen()
 {
 
 	
@@ -106,8 +106,70 @@ void SplashScreen(int x)
 		gotoXY(10, 37 + i);
 		cout << "                                                                                                    ";
 	}
-	//cout << "END
-	system("pause");
+	int x=70, y=38;
+	gotoXY(x, y);
+	cout << "1/ START GAME";
+	gotoXY(x, y+1);
+	cout << "2/ LOAD GAME";
+	gotoXY(x, y + 2);
+	cout << "3/ EXIT";
+	cout << "\n\n\n\n\n";
+	int v = ChoosingMenu(x, y, y + 2);
+	if (v == y)
+	{
+		system("cls");
+		drawboder();
+	}
+	else if (v == y + 1)
+	{
+		//load file;
+	}
+	else if (v == y + 2)
+	{
+		//exit
+	}
 	system("cls");
 
 }
+
+int ChoosingMenu(int x, int firstline, int lastline)
+{
+	int v = firstline - 1;
+	char a = 175;
+	while (true)
+	{
+		if (_kbhit())
+		{
+			char c = _getch();
+			if (c == 'P' || c == 'S' || c == 's') //down
+			{
+				gotoXY(x - 2, v);
+				cout << (' ');
+				if (v == lastline)
+				{
+					v = firstline - 1; // truoc dong dau tien cua menu (co dinh)
+				}
+				v = v + 1;
+				gotoXY(x - 2, v);
+				cout << a;
+			}
+			if (c == 'w' || c == 'W' || c == 'H') //up
+			{
+				gotoXY(x - 2, v);
+				cout << (' ');
+				if (v <= firstline)
+				{
+					v = lastline + 1;
+				}
+				v = v - 1;
+				gotoXY(x - 2, v);
+				cout << a;
+			}
+			if (c == 13) // 13 la ma ascii cua enter
+			{
+				return v;
+			}
+		}
+	}
+}
+

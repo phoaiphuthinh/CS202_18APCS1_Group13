@@ -121,6 +121,12 @@ void drawboder()
 		gotoXY(102, 1 + i);
 		cout << "|";
 	}
+	drawduck(2, 12, 0);
+	drawcar(2, 19, 0);
+	drawufo(2, 26, 0);
+	drawpig(2, 33, 0);
+	cout << "\n\n\n\n\n\n\n\n\n\n";
+	system("pause");
 }
 
 

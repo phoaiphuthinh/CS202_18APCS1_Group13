@@ -16,6 +16,18 @@ people::people(int x, int y) {
 	mState = true;
 }
 
+void people::draw(int x, int y)
+{
+	gotoXY(x, y);
+	std::cout << " 0  " << std::endl;
+	gotoXY(x, y);
+	std::cout << "/|\\" << std::endl;
+	gotoXY(x, y);
+	std::cout << " |  " << std::endl;
+	gotoXY(x, y);
+	std::cout << "/ \\" << std::endl;
+}
+
 void people::Up(int height)
 {
 	mY += height;
@@ -69,12 +81,12 @@ bool people::isImpact(const std::vector<Animal*>& vAnimal)
 	return false;
 }
 
-bool people::isFinish()
-{
+//ool people::isFinish()
+//{
 	// N/A mapHeight
 	/*	if (mY == mapHeight) return true;
 		else return false;*/
-}
+//}
 
 bool people::isDead()
 {

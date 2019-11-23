@@ -13,7 +13,7 @@ public:
 	Animal();
 	Animal(int x, int y);
 	~Animal();
-	virtual void draw(int x, int y) = 0;
+	virtual void draw(int x, int y,int d) = 0;
 	virtual void move(int sign); //left or right
 	virtual void makeSound();
 	virtual int getSign() = 0;

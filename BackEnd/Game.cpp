@@ -20,7 +20,55 @@ Game::~Game() {
 }
 
 void Game::draw() {
-	//Ponk long xien
+	std::cout << "  ";
+	for (int i = 0; i < 42; i++)
+	{
+		gotoXY(1, 1 + i);
+		std::cout << "|";
+	}
+	for (int i = 0; i < 100; i++)
+	{
+		gotoXY(2 + i, 0);
+		std::cout << "_";
+		gotoXY(2 + i, 7);
+		std::cout << "_";
+		gotoXY(2 + i, 14);
+		std::cout << "_";
+		gotoXY(2 + i, 21);
+		std::cout << "_";
+		gotoXY(2 + i, 28);
+		std::cout << "_";
+		gotoXY(2 + i, 35);
+		std::cout << "_";
+		gotoXY(2 + i, 42);
+		std::cout << "_";
+	}
+	for (int i = 0; i < 42; i++)
+	{
+		gotoXY(102, 1 + i);
+		std::cout << "|";
+	}
+	Animal* ani;
+	ani = new Duck();
+	ani->draw(2, 12, 0);
+	delete ani;
+
+	Vehicle* v;
+	v = new car();
+	v->draw(2, 19, 0);
+	delete v;
+
+	v = new ufo();
+	v->draw(2, 26, 0);
+	delete v;
+	
+
+	ani = new Moew();
+	ani->draw(2, 33, 0);
+	delete ani;
+
+	people p;
+	p.draw(49, 40);
 }
 
 void Game::saveGame(std::string name) {

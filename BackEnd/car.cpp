@@ -14,9 +14,30 @@ car::car(int x, int y)
 	w = 20; //size of image
 }
 
-void car::draw()
+void car::draw(int x, int y, int d)
 {
-	//Coboloxi's work
+		if (d == 1)
+		{
+			gotoXY(x, y - 3);
+			std::cout << "    _______       " << std::endl;
+			gotoXY(x, y - 2);
+			std::cout << " _//__|||__\\\\__ " << std::endl;
+			gotoXY(x, y - 1);
+			std::cout << "0/ \\___|____/ \\|" << std::endl;
+			gotoXY(x, y);
+			std::cout << " \\_/        \\_/ " << std::endl;
+		}
+		else
+		{
+			gotoXY(x, y - 3);
+			std::cout << "    _______       " << std::endl;
+			gotoXY(x, y - 2);
+			std::cout << " _//__|||__\\\\__ " << std::endl;
+			gotoXY(x, y - 1);
+			std::cout << "|/ \\___|____/ \\0" << std::endl;
+			gotoXY(x, y);
+			std::cout << " \\_/        \\_/ " << std::endl;
+		}
 }
 
 void car::makeSound()

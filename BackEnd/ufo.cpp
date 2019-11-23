@@ -14,9 +14,18 @@ ufo::ufo(int x, int y)
 	w = 20; //size of image
 }
 
-void ufo::draw()
+void ufo::draw(int x, int y, int d)
 {
-	//Coboloxi's work
+
+		gotoXY(x, y - 3);
+		std::cout << "  .------." << std::endl;
+		gotoXY(x, y - 2);
+		std::cout << "_/` oooo `\\_" <<std:: endl;
+		gotoXY(x, y - 1);
+		std::cout << " `-=.==.=-'" << std::endl;
+		gotoXY(x, y - 0);
+		std::cout << "    V  V" << std::endl;
+	
 }
 
 void ufo::makeSound()

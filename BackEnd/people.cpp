@@ -18,11 +18,11 @@ people::people(int x, int y) {
 
 void people::draw(int x, int y)
 {
-	gotoXY(x, y);
+	gotoXY(x, y-3);
 	std::cout << " 0  " << std::endl;
-	gotoXY(x, y);
+	gotoXY(x, y-2);
 	std::cout << "/|\\" << std::endl;
-	gotoXY(x, y);
+	gotoXY(x, y-1);
 	std::cout << " |  " << std::endl;
 	gotoXY(x, y);
 	std::cout << "/ \\" << std::endl;

@@ -68,7 +68,7 @@ void Game::draw() {
 	delete ani;
 
 	people p;
-	p.draw(49, 40);
+	p.draw(49,40);
 }
 
 void Game::saveGame(std::string name) {

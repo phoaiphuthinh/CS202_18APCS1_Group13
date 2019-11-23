@@ -8,4 +8,5 @@ public:
 	Duck();
 	Duck(int x, int y);
 	void draw(int x, int y);
+	int getSign();
 };

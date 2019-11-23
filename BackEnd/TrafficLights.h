@@ -6,7 +6,7 @@ private:
 	int time; //time remaining
 public:
 	TrafficLights();
-	TrafficLights(int time);
+	TrafficLights(int state, int time);
 	int getState();
 	int getTime();
 	void change(int newTime = 30);

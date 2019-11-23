@@ -24,3 +24,6 @@ void car::makeSound()
 	PlaySound(TEXT("carCrash.wav"), NULL, SND_SYNC);
 }
 
+int car::getSign() {
+	return 1;
+}

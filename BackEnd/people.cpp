@@ -1,9 +1,19 @@
 #include "people.h"
+
+const int DEFAULT_X = 15;
+const int DEFAULT_Y = 15;
+
 people::people()
 {
-	/*mX = centerX;
-	mY = centerY;
-	mState = true;*/
+	mX = DEFAULT_X;
+	mY = DEFAULT_Y;
+	mState = true;
+}
+
+people::people(int x, int y) {
+	mX = x;
+	mY = y;
+	mState = true;
 }
 
 void people::Up(int height)
@@ -71,3 +81,11 @@ bool people::isDead()
 	return !mState;
 }
 
+
+int people::getX() {
+	return mX;
+}
+
+int people::getY() {
+	return mY;
+}

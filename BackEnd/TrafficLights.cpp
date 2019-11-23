@@ -5,8 +5,8 @@ TrafficLights::TrafficLights() {
 	time = 30; //default time 
 }
 
-TrafficLights::TrafficLights(int time) {
-	state = 0;
+TrafficLights::TrafficLights(int state, int time) {
+	this->state = state;
 	this->time = time;
 }
 

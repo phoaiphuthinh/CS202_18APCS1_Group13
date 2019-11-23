@@ -9,4 +9,5 @@ public:
 	~car();
 	void draw();
 	void makeSound();
+	int getSign();
 };

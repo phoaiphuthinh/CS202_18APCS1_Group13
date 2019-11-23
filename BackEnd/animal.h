@@ -16,8 +16,10 @@ public:
 	virtual void draw(int x, int y) = 0;
 	virtual void move(int sign); //left or right
 	virtual void makeSound();
+	virtual int getSign() = 0;
 	int getX();
 	int getY();
+	int getWidth();
 	bool getDestroy();
 };
 

@@ -3,10 +3,18 @@
 #include "animal.h"
 #include "vehicle.h"
 #include "TrafficLights.h"
+#include "people.h"
+#include "car.h"
+#include "ufo.h"
+#include "duck.h"
+#include "moew.h"
 #include <vector>
 #include <string>
 #include <fstream>
 #include <iostream>
+#include <algorithm>
+#include <stdlib.h>
+#include <time.h>
 
 class Game {
 private:
@@ -14,19 +22,20 @@ private:
 	std::vector<Vehicle*> vehicle;
 	std::vector<TrafficLights> trafficLights;
 	int level; 
-	//People : Hiu's work
+	people player;
+
 public:
 	Game();
 	~Game();
 	void draw();
-	std::vector<Animal*> getAnimal();
-	std::vector<Vehicle*> getVehicle();
-	void resetGame();
-	void startGame();
-	void loadGame(std::string name);
+	bool loadGame(std::string name);
 	void saveGame(std::string name);
 	void updatePeople(char c);
 	void update();
-
+	void levelUp();
+	void startGame();
+	bool finish();
+	bool isDead();
+	bool endGame();
 	//List of other methods
 };

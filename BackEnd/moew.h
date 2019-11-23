@@ -9,4 +9,5 @@ public:
 	Moew(int x, int y);
 	~Moew();
 	void draw(int x, int y);
+	int getSign();
 };

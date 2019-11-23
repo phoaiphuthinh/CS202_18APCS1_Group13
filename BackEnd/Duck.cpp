@@ -13,3 +13,6 @@ void Duck::draw(int x, int y) {
 
 }
 
+int Duck::getSign() {
+	return 1;
+}

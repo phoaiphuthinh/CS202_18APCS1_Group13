@@ -16,3 +16,6 @@ void Moew::draw(int x, int y) {
 
 }
 
+int Moew::getSign() {
+	return -1;
+}

@@ -3,10 +3,11 @@
 #include <vector>
 class people {
 	int mX, mY;
-	const int width = 5;
+	int width = 5;
 	bool mState;
 public:
 	people();
+	people(int x, int y);
 	void Up(int height);
 
 	void Left(int width);
@@ -20,4 +21,7 @@ public:
 
 	bool isFinish();
 	bool isDead();
-}
+
+	int getX();
+	int getY();
+};

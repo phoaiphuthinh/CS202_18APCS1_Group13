@@ -1,3 +1,4 @@
+#include "ufo.h"
 
 ufo::ufo()
 {
@@ -23,3 +24,6 @@ void ufo::makeSound()
 	PlaySound(TEXT("ufoCrash.wav"), NULL, SND_ASYNC);
 }
 
+int ufo::getSign() {
+	return -1;
+}

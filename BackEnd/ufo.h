@@ -9,4 +9,5 @@ public:
 	~ufo();
 	void draw();
 	void makeSound();
+	int getSign();
 };

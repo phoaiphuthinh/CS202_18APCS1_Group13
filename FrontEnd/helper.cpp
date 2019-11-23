@@ -8,7 +8,7 @@ void FixConsoleWindow()
 	SetWindowLong(consoleWindow, GWL_STYLE, style);
 }
 
-void GotoXY(int x, int y)
+void gotoXY(int x, int y)
 {
 	COORD coord;
 	coord.X = x;

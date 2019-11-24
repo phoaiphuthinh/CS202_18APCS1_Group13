@@ -1,7 +1,6 @@
 #pragma once
 #include "vehicle.h"
 #include "../FrontEnd/helper.h"
-
 class car : public Vehicle {
 private:
 public:

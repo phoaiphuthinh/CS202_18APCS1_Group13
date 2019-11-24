@@ -1,8 +1,8 @@
 #pragma once
 #include <Windows.h>
 #include<MMSystem.h>
+#include<string>
 #include "../FrontEnd/helper.h"
-
 
 class Vehicle
 {

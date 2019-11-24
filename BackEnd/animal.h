@@ -3,7 +3,6 @@
 #include <Windows.h>
 #include <mmsystem.h>
 #include "../FrontEnd/helper.h"
-
 class Animal{
 protected:
 	int mX, mY; //Center point

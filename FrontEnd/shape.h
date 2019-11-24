@@ -2,6 +2,7 @@
 #define _SHAPE_H_
 
 #include <iostream>
+#include <string>
 using namespace std;
 
 void drawcar(int x,int y,int d);

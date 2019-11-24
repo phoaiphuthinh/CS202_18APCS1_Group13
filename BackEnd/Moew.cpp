@@ -1,11 +1,13 @@
 #include "Moew.h"
 
 Moew::Moew() {
-
+	h = 4;
+	w = 13;
 }
 
 Moew::Moew(int x, int y) : Animal(x, y) {
-
+	h = 4;
+	w = 13;
 }
 
 Moew::~Moew() {
@@ -13,6 +15,7 @@ Moew::~Moew() {
 }
 
 void Moew::draw() {
+
 	int d = getSign();
 	int x = mX;
 	int y = mY;

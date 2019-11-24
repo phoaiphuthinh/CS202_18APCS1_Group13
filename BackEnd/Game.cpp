@@ -131,15 +131,16 @@ void Game::updatePeople(char c) {
 	switch (c)
 	{
 	case 'W':
-		player.Up(HEIGHT);
+		player.Up(7);
 		break;
 	case 'A':
-		player.Left(WIDTH);
+		player.Left(2);
 		break;
 	case 'S':
-		player.Down(HEIGHT);
+		player.Down(7);
+		break;
 	case 'D':
-		player.Right(WIDTH);
+		player.Right(2);
 		break;
 	default:
 		break;
@@ -188,7 +189,7 @@ void Game::startGame() {
 }
 
 bool Game::finish() {
-	return false;
+	return player.isFinish();
 }
 
 bool Game::isDead() {

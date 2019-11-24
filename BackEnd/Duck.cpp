@@ -2,13 +2,19 @@
 
 Duck::Duck() {
 	sound = "boloxi";
+	h = 4;
+	w = 10;
 }
 
-Duck::Duck(int x, int y) : Animal(x,y) {
-	sound = "boloxi";
+Duck::Duck(int x, int y) : Animal(x, y) {
+	sound = "boloxi"; 
+	h = 4;
+	w = 10;
 }
 
 void Duck::draw() {
+	
+
 	int d = getSign();
 	int x = mX;
 	int y = mY;

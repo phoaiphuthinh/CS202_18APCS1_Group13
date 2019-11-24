@@ -21,11 +21,11 @@ void people::draw()
 {
 	int x = mX;
 	int y = mY;
-	gotoXY(x, y-3);
+	gotoXY(x, y - 3);
 	std::cout << " 0  " << std::endl;
-	gotoXY(x, y-2);
+	gotoXY(x, y - 2);
 	std::cout << "/|\\" << std::endl;
-	gotoXY(x, y-1);
+	gotoXY(x, y - 1);
 	std::cout << " |  " << std::endl;
 	gotoXY(x, y);
 	std::cout << "/ \\" << std::endl;
@@ -33,38 +33,46 @@ void people::draw()
 
 void people::Up(int height)
 {
-	mY += height;
+	mY -= height;
 }
 
 void people::Left(int width)
 {
-	mX += width;
+	if (mX - width > 2)
+		mX -= width;
 }
 
 void people::Right(int width)
 {
-	mX -= width;
+	if (mX + width <= 49 + 25 * 2 - 1)
+		mX += width;
 }
 
 void people::Down(int height)
 {
-	mY -= height;
+	if (mY + height <= 40)
+		mY += height;
 }
 
 bool people::isImpact(const std::vector<Vehicle*>& vVehicle)
 {
 	for (int i = 0; i < vVehicle.size(); i++)
 	{
+
 		if (vVehicle[i]->getY() == mY) //check whether they are in the same lane
 		{
+
 			if ((mX >= vVehicle[i]->getX() &&
 				mX <= vVehicle[i]->getX() + vVehicle[i]->getWidth())
 				|| (mX + width >= vVehicle[i]->getX() &&
 					mX + width <= vVehicle[i]->getX() + vVehicle[i]->getWidth()))
-				return false;
+			{
+				mState = false;
+				return true;
+			}
 		}
 	}
-	return true;
+	return false;
 }
 
 bool people::isImpact(const std::vector<Animal*>& vAnimal)
@@ -77,8 +85,10 @@ bool people::isImpact(const std::vector<Animal*>& vAnimal)
 				mX <= vAnimal[i]->getX() + vAnimal[i]->getWidth())
 				|| (mX + width >= vAnimal[i]->getX() &&
 					mX + width <= vAnimal[i]->getX() + vAnimal[i]->getWidth()))
+			{
 				mState = false;
-			return true;
+				return true;
+			}
 		}
 	}
 	return false;
@@ -86,9 +96,8 @@ bool people::isImpact(const std::vector<Animal*>& vAnimal)
 
 bool people::isFinish()
 {
-	 
-		if (mY == mapHeight) return true;
-		else return false;
+	if (mY == DEFAULT_Y - 7 * 5) return true;
+	else return false;
 }
 
 bool people::isDead()

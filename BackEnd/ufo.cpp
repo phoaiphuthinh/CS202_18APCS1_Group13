@@ -2,16 +2,16 @@
 
 ufo::ufo()
 {
-	h = 20; //size of image
-	w = 10; //size of image
+	h = 4; //size of image
+	w = 14; //size of image
 }
 
 ufo::ufo(int x, int y)
 {
 	mY = y;
 	mX = x; 
-	h = 20; //size of image
-	w = 10; //size of image
+	h = 4; //size of image
+	w = 14; //size of image
 }
 
 void ufo::draw()

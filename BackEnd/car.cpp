@@ -2,16 +2,16 @@
 
 car::car()
 {
-	h = 20; //size of image
-	w = 20; //size of image
+	h = 4; //size of image
+	w = 18; //size of image
 }
 
 car::car(int x, int y)
 {
 	mY = y;
 	mX = x;
-	h = 20; //size of image
-	w = 20; //size of image
+	h = 4; //size of image
+	w = 18; //size of image
 }
 
 void car::draw()

@@ -1,6 +1,6 @@
 #include "animal.h"
 /* Modify if necessary */
-const int SCREEN_SIZE_WIDTH = 129;
+const int SCREEN_SIZE_WIDTH = 101;
 const int SCREEN_SIZE_HEIGHT = 29;
 
 Animal::Animal() {
@@ -12,7 +12,7 @@ Animal::Animal(int x, int y) {
 	mX = x;
 	mY = y;
 	h = 20;
-	w = 20;
+	w = 10;
 }
 
 Animal::~Animal() {
@@ -21,11 +21,12 @@ Animal::~Animal() {
 
 void Animal::move(int sign) {
 	mX += sign * w / 2;
-	if (mX + w < 0)
-		mX += w;
-	if (mX - w > SCREEN_SIZE_WIDTH)
-		mX -= w;
-	cerr << mX << " ";
+	if (mX + w / 2 < 0)
+		mX = SCREEN_SIZE_WIDTH - w / 2;
+	if (mX - w / 2 > SCREEN_SIZE_WIDTH)
+		mX = -w / 2;
+	//gotoXY(1, 40);
+	//std::cerr << mX << " ";
 }
 
 

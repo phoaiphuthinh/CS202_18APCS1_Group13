@@ -20,6 +20,7 @@ Game::~Game() {
 }
 
 void Game::draw() {
+	system("cls");
 	std::cout << "  ";
 	for (int i = 0; i < 42; i++)
 	{
@@ -157,14 +158,22 @@ void Game::levelUp() {
 	level++;
 	Game::~Game();
 	player = people();
-	int n = min(4 + level + rand() % 3, 9);
+	int n = min(2 + level + rand() % 2, 9);
 	vehicle.assign(2 * n, nullptr);
 	animal.assign(2 * n, nullptr);
 	for (int i = 0; i < n; i++) {
-		vehicle[2 * i] = new car(20 * (i + rand() % 3), 12); // lane 1
-		vehicle[2 * i + 1] = new ufo(20 * (i + rand() % 3), 19); //lane 2
-		animal[2 * i] = new Duck(20 * (i + rand() % 3), 26); //lane 3
-		animal[2 * i + 1] = new Moew(20 * (i + rand() % 3), 33); //lane 4
+		if (i == 0) {
+			vehicle[2 * i] = new car(rand() % 20 + 2, 12); // lane 1
+			vehicle[2 * i + 1] = new ufo(rand() % 20 + 2, 19); //lane 2
+			animal[2 * i] = new Duck(rand() % 20 + 2, 26); //lane 3
+			animal[2 * i + 1] = new Moew(rand() % 20 + 2, 33); //lane 4
+		}
+		else {
+			vehicle[2 * i] = new car(10 + (rand() % 3 + 1) + vehicle[2*(i-1)]->getX(), 12); // lane 1
+			vehicle[2 * i + 1] = new ufo(10 + (rand() % 3 + 1) + vehicle[2*(i - 1)+1]->getX(), 19); //lane 2
+			animal[2 * i] = new Duck(10 + (rand() % 3 + 1) + animal[2*(i - 1)]->getX(), 26); //lane 3
+			animal[2 * i + 1] = new Moew(10 + (rand() % 3 + 1) + animal[2*(i - 1)+1]->getX(), 33); //lane 4
+		}
 	}
 	if (level > 6) {
 		trafficLights.push_back(TrafficLights());

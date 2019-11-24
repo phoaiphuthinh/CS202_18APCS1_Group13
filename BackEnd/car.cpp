@@ -74,21 +74,21 @@ void car::draw()
 	else if (x > 101 - line1.length() + 1)
 	{
 		gotoXY(x, y - 3);
-		for (int i = 0; i < line1.length() - (x - (101 - line1.length() + 1)); i++)
+		for (int i = 0; i < (int)line1.length() - (x - (101 - (int)line1.length() + 1)); i++)
 			std::cout << line1[i];
 		std::cout << std::endl;
 		gotoXY(x, y - 2);
-		for (int i = 0; i < line2.length() - (x - (101 - line2.length() + 1)); i++)
+		for (int i = 0; i < (int)line2.length() - (x - (101 - (int)line2.length() + 1)); i++)
 			std::cout << line2[i];
 		std::cout << std::endl;
 
 		gotoXY(x, y - 1);
-		for (int i = 0; i < line3.length() - (x - (101 - line3.length() + 1)); i++)
+		for (int i = 0; i < (int)line3.length() - (x - (101 - (int)line3.length() + 1)); i++)
 			std::cout << line3[i];
 		std::cout << std::endl;
 
 		gotoXY(x, y - 0);
-		for (int i = 0; i < line4.length() - (x - (101 - line4.length() + 1)); i++)
+		for (int i = 0; i < (int)line4.length() - (x - (101 - (int)line4.length() + 1)); i++)
 		std::cout << line4[i];
 		std::cout << std::endl;
 	}

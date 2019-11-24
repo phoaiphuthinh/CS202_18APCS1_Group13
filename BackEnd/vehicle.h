@@ -13,9 +13,9 @@ protected:
 public:
 	Vehicle();
 	~Vehicle();
-	int getX();;
-	int getY();;
-	int getWidth();;
+	int getX();
+	int getY();
+	int getWidth();
 	virtual void draw() = 0;
 	virtual void move(int sign); //left or right
 	virtual void makeSound() = 0;

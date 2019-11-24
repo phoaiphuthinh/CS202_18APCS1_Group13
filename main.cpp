@@ -23,20 +23,20 @@ void playGame() {
 
 		}
 		if (game.finish()) {
-			isRunning = false;
+			//isRunning = false;
 			game.levelUp();
 		}
-		Sleep(2000);
+		Sleep(100);
 	}
 }
 
 int main() {
 	//Lack of screen and menu :3
 	//PlayGame
+	isRunning = true;
 	std::thread t(playGame);
 	
 	game.startGame();
-	isRunning = true;
 	while (true) {
 		int temp = toupper(_getch());
 		
@@ -46,12 +46,12 @@ int main() {
 		}
 
 		if (!game.isDead()) {
-			if (temp == 'P')
-				isRunning = false;
-			else {
+			//if (temp == 'P')
+				//isRunning = false;
+			//else {
 				MOVING = temp;
 				isRunning = true;
-			}
+			//}
 		} else {
 			if (temp == 'Y') {
 				game.startGame();
@@ -65,3 +65,15 @@ int main() {
 
 	return 0;
 }
+
+/*
+int main() {
+	game.startGame();
+	while (true) {
+		game.update();
+		game.draw();
+		Sleep(100);
+	}
+	return 0;
+}
+*/

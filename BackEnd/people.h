@@ -1,6 +1,6 @@
 #include "vehicle.h"
 #include "animal.h"
-#include "helper.h"
+#include "../FrontEnd/helper.h"
 #include <vector>
 class people {
 	int mX, mY;
@@ -10,7 +10,7 @@ public:
 	people();
 	people(int x, int y);
 
-	void draw(int x, int y);
+	void draw();
 	void Up(int height);
 
 	void Left(int width);

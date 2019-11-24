@@ -25,6 +25,7 @@ void Animal::move(int sign) {
 		mX += w;
 	if (mX - w > SCREEN_SIZE_WIDTH)
 		mX -= w;
+	cerr << mX << " ";
 }
 
 

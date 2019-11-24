@@ -48,27 +48,11 @@ void Game::draw() {
 		gotoXY(102, 1 + i);
 		std::cout << "|";
 	}
-	Animal* ani;
-	ani = new Duck();
-	ani->draw(2, 12, 0);
-	delete ani;
-
-	Vehicle* v;
-	v = new car();
-	v->draw(2, 19, 0);
-	delete v;
-
-	v = new ufo();
-	v->draw(2, 26, 0);
-	delete v;
-	
-
-	ani = new Moew();
-	ani->draw(2, 33, 0);
-	delete ani;
-
-	people p;
-	p.draw(49,40);
+	for (auto x : animal)
+		x->draw();
+	for (auto x : vehicle)
+		x->draw();
+	player.draw();
 }
 
 void Game::saveGame(std::string name) {
@@ -170,16 +154,17 @@ void Game::update() {
 
 void Game::levelUp() {
 	srand(time(NULL));
+	level++;
 	Game::~Game();
 	player = people();
-	int n = min(4 + rand() % 3, 9);
+	int n = min(4 + level + rand() % 3, 9);
 	vehicle.assign(2 * n, nullptr);
 	animal.assign(2 * n, nullptr);
 	for (int i = 0; i < n; i++) {
-		vehicle[2 * i] = new car(20 * (i + rand() % 3), 15); // lane 1
-		vehicle[2 * i + 1] = new ufo(20 * (i + rand() % 3), 30); //lane 2
-		animal[2 * i] = new Duck(20 * (i + rand() % 3), 45); //lane 3
-		animal[2 * i + 1] = new Moew(20 * (i + rand() % 3), 60); //lane 4
+		vehicle[2 * i] = new car(20 * (i + rand() % 3), 12); // lane 1
+		vehicle[2 * i + 1] = new ufo(20 * (i + rand() % 3), 19); //lane 2
+		animal[2 * i] = new Duck(20 * (i + rand() % 3), 26); //lane 3
+		animal[2 * i + 1] = new Moew(20 * (i + rand() % 3), 33); //lane 4
 	}
 	if (level > 6) {
 		trafficLights.push_back(TrafficLights());
@@ -194,7 +179,7 @@ void Game::startGame() {
 }
 
 bool Game::finish() {
-	return player.isImpact(vehicle) || player.isImpact(animal);
+	return false;
 }
 
 bool Game::isDead() {

@@ -1,7 +1,8 @@
 #include "people.h"
 
-const int DEFAULT_X = 15;
-const int DEFAULT_Y = 15;
+const int DEFAULT_X = 49;
+const int DEFAULT_Y = 40;
+const int mapHeight = 10;
 
 people::people()
 {
@@ -16,8 +17,10 @@ people::people(int x, int y) {
 	mState = true;
 }
 
-void people::draw(int x, int y)
+void people::draw()
 {
+	int x = mX;
+	int y = mY;
 	gotoXY(x, y-3);
 	std::cout << " 0  " << std::endl;
 	gotoXY(x, y-2);
@@ -81,12 +84,12 @@ bool people::isImpact(const std::vector<Animal*>& vAnimal)
 	return false;
 }
 
-//ool people::isFinish()
-//{
-	// N/A mapHeight
-	/*	if (mY == mapHeight) return true;
-		else return false;*/
-//}
+bool people::isFinish()
+{
+	 
+		if (mY == mapHeight) return true;
+		else return false;
+}
 
 bool people::isDead()
 {

@@ -15,7 +15,7 @@
 #include <algorithm>
 #include <stdlib.h>
 #include <time.h>
-#include "helper.h"
+#include "../FrontEnd/helper.h"
 
 class Game {
 private:

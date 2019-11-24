@@ -12,7 +12,10 @@ Moew::~Moew() {
 
 }
 
-void Moew::draw(int x, int y, int d) {
+void Moew::draw() {
+	int d = getSign();
+	int x = mX;
+	int y = mY;
 	if (d == 1)
 	{
 		gotoXY(x, y - 3);

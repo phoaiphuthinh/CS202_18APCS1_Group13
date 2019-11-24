@@ -2,8 +2,8 @@
 #include <thread>
 #include "BackEnd/Game.h"
 #include "FrontEnd/SplashScreen.h"
-static bool isRunning = false;
-static Game game;
+bool isRunning = false;
+Game game;
 char MOVING;
 
 void exitGame(std::thread* t) {
@@ -12,6 +12,7 @@ void exitGame(std::thread* t) {
 }
 
 void playGame() {
+	//cerr << "Play\n";
 	while (isRunning) {
 		if (!game.isDead()) 
 			game.updatePeople(MOVING);
@@ -25,6 +26,7 @@ void playGame() {
 			isRunning = false;
 			game.levelUp();
 		}
+		Sleep(2000);
 	}
 }
 
@@ -32,6 +34,9 @@ int main() {
 	//Lack of screen and menu :3
 	//PlayGame
 	std::thread t(playGame);
+	
+	game.startGame();
+	isRunning = true;
 	while (true) {
 		int temp = toupper(_getch());
 		
@@ -55,6 +60,7 @@ int main() {
 			else
 				exitGame(&t);
 		}
+		//cerr << isRunning;
 	}
 
 	return 0;

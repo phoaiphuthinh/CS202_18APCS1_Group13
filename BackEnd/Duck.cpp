@@ -8,7 +8,10 @@ Duck::Duck(int x, int y) : Animal(x,y) {
 	sound = "boloxi";
 }
 
-void Duck::draw(int x, int y,int d) {
+void Duck::draw() {
+	int d = getSign();
+	int x = mX;
+	int y = mY;
 	if (d == 1)
 	{
 		gotoXY(x, y - 3);

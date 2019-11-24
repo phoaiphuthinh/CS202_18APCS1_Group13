@@ -14,9 +14,10 @@ ufo::ufo(int x, int y)
 	w = 20; //size of image
 }
 
-void ufo::draw(int x, int y, int d)
+void ufo::draw()
 {
-
+	int x = mX;
+	int y = mY;
 		gotoXY(x, y - 3);
 		std::cout << "  .------." << std::endl;
 		gotoXY(x, y - 2);

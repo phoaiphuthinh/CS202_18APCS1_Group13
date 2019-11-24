@@ -14,8 +14,11 @@ car::car(int x, int y)
 	w = 20; //size of image
 }
 
-void car::draw(int x, int y, int d)
+void car::draw()
 {
+	int d = getSign();
+	int x = mX;
+	int y = mY;
 		if (d == 1)
 		{
 			gotoXY(x, y - 3);
@@ -42,7 +45,7 @@ void car::draw(int x, int y, int d)
 
 void car::makeSound()
 {
-	PlaySound(TEXT("carCrash.wav"), NULL, SND_SYNC);
+	PlaySound(TEXT("./sources/carCrash.wav"), NULL, SND_SYNC);
 }
 
 int car::getSign() {

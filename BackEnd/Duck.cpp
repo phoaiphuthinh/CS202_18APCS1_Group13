@@ -95,3 +95,7 @@ void Duck::draw() {
 int Duck::getSign() {
 	return 1;
 }
+
+void Duck::makeSound() {
+	PlaySound(TEXT("./sources/duck.wav"), NULL, SND_ASYNC);
+}

@@ -1,6 +1,6 @@
 #include "SplashScreen.h"
 
-void SplashScreen()
+int SplashScreen()
 {
 
 	
@@ -118,15 +118,16 @@ void SplashScreen()
 	if (v == y)
 	{
 		system("cls");
-		drawboder();
+		//drawboder();
+		return 1;
 	}
 	else if (v == y + 1)
 	{
-		//load file;
+		return 2;
 	}
 	else if (v == y + 2)
 	{
-		//exit
+		return 3;
 	}
 	system("cls");
 

@@ -68,6 +68,7 @@ bool people::isImpact(const std::vector<Vehicle*>& vVehicle)
 					mX + width <= vVehicle[i]->getX() + vVehicle[i]->getWidth()))
 			{
 				mState = false;
+				vVehicle[i]->makeSound();
 				return true;
 			}
 		}
@@ -87,6 +88,7 @@ bool people::isImpact(const std::vector<Animal*>& vAnimal)
 					mX + width <= vAnimal[i]->getX() + vAnimal[i]->getWidth()))
 			{
 				mState = false;
+				vAnimal[i]->makeSound();
 				return true;
 			}
 		}

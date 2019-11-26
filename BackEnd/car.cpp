@@ -96,7 +96,7 @@ void car::draw()
 
 void car::makeSound()
 {
-	PlaySound(TEXT("./sources/carCrash.wav"), NULL, SND_SYNC);
+	PlaySound(TEXT("./sources/carCrash.wav"), NULL, SND_ASYNC);
 }
 
 int car::getSign() {

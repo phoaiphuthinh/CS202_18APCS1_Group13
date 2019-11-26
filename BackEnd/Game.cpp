@@ -159,7 +159,7 @@ void Game::levelUp() {
 	level++;
 	Game::~Game();
 	player = people();
-	int n = min(2 + level + rand() % 2, 9);
+	int n = min(level + rand() % 2, 5);
 	vehicle.assign(2 * n, nullptr);
 	animal.assign(2 * n, nullptr);
 	for (int i = 0; i < n; i++) {
@@ -170,8 +170,8 @@ void Game::levelUp() {
 			animal[2 * i + 1] = new Moew(rand() % 20 + 2, 33); //lane 4
 		}
 		else {
-			vehicle[2 * i] = new car(10 + (rand() % 3 + 1) + vehicle[2*(i-1)]->getX(), 12); // lane 1
-			vehicle[2 * i + 1] = new ufo(10 + (rand() % 3 + 1) + vehicle[2*(i - 1)+1]->getX(), 19); //lane 2
+			vehicle[2 * i] = new car(20 + (rand() % 3 + 1) + vehicle[2*(i-1)]->getX(), 12); // lane 1
+			vehicle[2 * i + 1] = new ufo(15 + (rand() % 3 + 1) + vehicle[2*(i - 1)+1]->getX(), 19); //lane 2
 			animal[2 * i] = new Duck(10 + (rand() % 3 + 1) + animal[2*(i - 1)]->getX(), 26); //lane 3
 			animal[2 * i + 1] = new Moew(10 + (rand() % 3 + 1) + animal[2*(i - 1)+1]->getX(), 33); //lane 4
 		}

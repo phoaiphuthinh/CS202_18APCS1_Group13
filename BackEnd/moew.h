@@ -10,4 +10,5 @@ public:
 	~Moew();
 	void draw();
 	int getSign();
+	void makeSound();
 };

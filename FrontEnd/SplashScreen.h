@@ -6,6 +6,6 @@
 #include "shape.h"
 using namespace std;
 
-void SplashScreen();
+int SplashScreen();
 int ChoosingMenu(int x, int firstline, int lastline);
 #endif 

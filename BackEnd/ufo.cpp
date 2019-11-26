@@ -81,7 +81,7 @@ void ufo::draw()
 
 void ufo::makeSound()
 {
-	PlaySound(TEXT("ufoCrash.wav"), NULL, SND_ASYNC);
+	PlaySound(TEXT("./sources/ufoCrash.wav"), NULL, SND_ASYNC);
 }
 
 int ufo::getSign() {

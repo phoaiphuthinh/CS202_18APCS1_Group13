@@ -9,4 +9,5 @@ public:
 	Duck(int x, int y);
 	void draw();
 	int getSign();
+	void makeSound();
 };

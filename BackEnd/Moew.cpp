@@ -95,3 +95,7 @@ void Moew::draw() {
 int Moew::getSign() {
 	return -1;
 }
+
+void Moew::makeSound() {
+	PlaySound(TEXT("./sources/pig.wav"), NULL, SND_ASYNC);
+}

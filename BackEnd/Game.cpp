@@ -53,6 +53,7 @@ void Game::draw() {
 		x->draw();
 	for (auto x : vehicle)
 		x->draw();
+	//Draw traffic lights -> boloxi
 	player.draw();
 }
 
@@ -71,56 +72,83 @@ void Game::saveGame(std::string name) {
 		At first, save data in text file. If it works perfectly, store in binary file.
 	*/
 	std::ofstream f;
-	f.open("./data/" + name + ".dat");
-	f << level << "\n";
-	f << player.getX() << " " << player.getY() << "\n";
-
-	f << vehicle.size() << "\n";
-	for (auto x : vehicle)
-		f << x->getX() << " " << x->getY() << " "<< x->getSign() << " ";
-	f << "\n" << animal.size() << "\n";
-	for (auto x : animal)
-		f << x->getX() << " " << x->getY() << " " << x->getSign() << " ";
-	f << "\n" << trafficLights.size() << "\n";
-	for (auto x : trafficLights)
-		f << x.getState() << " " << x.getTime() << " ";
+	f.open("./data/" + name + ".dat", std::ios::out | std::ios::binary);
+	f.write((char*)&level, sizeof(int));
+	int x = player.getX();
+	f.write((char*)&x, sizeof(int));
+	x = player.getY();
+	f.write((char*)&x, sizeof(int));
+	x = (int)vehicle.size();
+	f.write((char*)&x, sizeof(int));
+	for (auto v : vehicle) {
+		x = v->getX();
+		f.write((char*)&x, sizeof(int));
+		x = v->getY();
+		f.write((char*)&x, sizeof(int));
+		x = v->getSign();
+		f.write((char*)&x, sizeof(int));
+	}
+	x = (int)animal.size();
+	f.write((char*)&x, sizeof(int));
+	for (auto v : animal) {
+		x = v->getX();
+		f.write((char*)&x, sizeof(int));
+		x = v->getY();
+		f.write((char*)&x, sizeof(int));
+		x = v->getSign();
+		f.write((char*)&x, sizeof(int));
+	}
+	x = (int)trafficLights.size();
+	f.write((char*)&x, sizeof(int));
+	for (auto v : trafficLights) {
+		x = v.getState();
+		f.write((char*)&x, sizeof(int));
+		x = v.getTime();
+		f.write((char*)&x, sizeof(int));
+	}
 	f.close();
 }
 
 bool Game::loadGame(std::string name) {
 	std::ifstream f;
-	f.open("./data/" + name + ".dat");
+	f.open("./data/" + name + ".dat", std::ios::in | std::ios::binary);
 	if (!f.is_open())
 		return false;
 	Game::~Game();
-	f >> level;
+	f.read((char*)&level, sizeof(int));
 	int x, y;
-	f >> x >> y;
+	f.read((char*)&x, sizeof(int));
+	f.read((char*)&y, sizeof(int));
 	player = people(x, y);
 	int n;
-	f >> n;
+	f.read((char*)&n, sizeof(int));
 	vehicle.assign(n, nullptr);
 	for (int i = 0; i < n; i++) {
-		int type;
-		f >> x >> y >> type;
+		int type; 
+		f.read((char*)&x, sizeof(int));
+		f.read((char*)&y, sizeof(int));
+		f.read((char*)&type, sizeof(int));
 		if (type == 1)
 			vehicle[i] = new car(x, y);
 		else
 			vehicle[i] = new ufo(x, y);
 	}
-	f >> n;
+	f.read((char*)&n, sizeof(int));
 	animal.assign(n, nullptr);
 	for (int i = 0; i < n; i++) {
 		int type;
-		f >> x >> y >> type;
+		f.read((char*)&x, sizeof(int));
+		f.read((char*)&y, sizeof(int));
+		f.read((char*)&type, sizeof(int));
 		if (type == 1)
 			animal[i] = new Duck(x, y);
 		else
 			animal[i] = new Moew(x, y);
 	}
-	f >> n;
+	f.read((char*)&n, sizeof(int));
 	for (int i = 0; i < n; i++) {
-		f >> x >> y;
+		f.read((char*)&x, sizeof(int));
+		f.read((char*)&y, sizeof(int));
 		trafficLights.push_back(TrafficLights(x, y));
 	}
 	f.close();
@@ -134,13 +162,13 @@ void Game::updatePeople(char c) {
 		player.Up(7);
 		break;
 	case 'A':
-		player.Left(2);
+		player.Left(4);
 		break;
 	case 'S':
 		player.Down(7);
 		break;
 	case 'D':
-		player.Right(2);
+		player.Right(4);
 		break;
 	default:
 		break;
@@ -148,9 +176,28 @@ void Game::updatePeople(char c) {
 }
 
 void Game::update() {
+	for (auto &x : trafficLights)
+		x.change(max(10, 30 - level * 2));
+	for (auto x : vehicle) {
+		if (trafficLights.size() == 0)
+			x->move(x->getSign());
+		else if (trafficLights.size() == 1) {
+			if (x->getSign() == 1)
+				x->move(1);
+			else if (trafficLights[0].getState() == 1)
+				x->move(-1);
+		} else {
+			if (x->getSign() == 1) {
+				if (trafficLights[1].getState())
+					x->move(1);
+			}
+			else {
+				if (trafficLights[0].getState())
+					x->move(-1);
+			}
+		}
+	}
 	for (auto x : animal)
-		x->move(x->getSign());
-	for (auto x : vehicle)
 		x->move(x->getSign());
 }
 
@@ -176,9 +223,9 @@ void Game::levelUp() {
 			animal[2 * i + 1] = new Moew(10 + (rand() % 3 + 1) + animal[2*(i - 1)+1]->getX(), 33); //lane 4
 		}
 	}
-	if (level > 6) {
+	if (level > 1) {
 		trafficLights.push_back(TrafficLights());
-		if (level > 10)
+		if (level > 5)
 			trafficLights.push_back(TrafficLights());
 	}
 }

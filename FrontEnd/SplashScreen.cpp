@@ -112,9 +112,11 @@ int SplashScreen()
 	gotoXY(x, y+1);
 	cout << "2/ LOAD GAME";
 	gotoXY(x, y + 2);
-	cout << "3/ EXIT";
+	cout << "3/ SCOREBOARD";
+	gotoXY(x, y + 3);
+	cout << "4/ EXIT";
 	cout << "\n\n\n\n\n";
-	int v = ChoosingMenu(x, y, y + 2);
+	int v = ChoosingMenu(x, y, y + 3);
 	if (v == y)
 	{
 		system("cls");
@@ -128,6 +130,10 @@ int SplashScreen()
 	else if (v == y + 2)
 	{
 		return 3;
+	}
+	else if (v == y + 3)
+	{
+		return 4;
 	}
 	system("cls");
 

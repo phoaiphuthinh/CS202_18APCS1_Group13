@@ -16,7 +16,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include "../FrontEnd/helper.h"
-
+#include "scoreboard.h"
 class Game {
 private:
 	std::vector<Animal*> animal;
@@ -24,12 +24,14 @@ private:
 	std::vector<TrafficLights> trafficLights;
 	int level; 
 	people player;
-
+	Scoreboard scoreboard;
 public:
 	Game();
 	~Game();
 	void draw();
 	bool loadGame(std::string name);
+	bool loadScoreboard();
+	bool saveScoreboard(std::string name);
 	void saveGame(std::string name);
 	void updatePeople(char c);
 	void update();

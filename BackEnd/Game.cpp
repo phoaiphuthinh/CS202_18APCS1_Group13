@@ -4,7 +4,6 @@ const int WIDTH = 20;
 const int HEIGHT = 5;
 
 Game::Game() {
-
 }
 
 Game::~Game() {
@@ -17,6 +16,8 @@ Game::~Game() {
 	animal.clear();
 	vehicle.clear();
 	trafficLights.clear();
+	Score tmp;
+
 }
 
 void Game::draw() {
@@ -153,6 +154,19 @@ bool Game::loadGame(std::string name) {
 	}
 	f.close();
 	return true;
+}
+
+bool Game::loadScoreboard()
+{
+	return scoreboard.load();
+}
+
+bool Game::saveScoreboard(std::string name)
+{
+	Score tmp;
+	tmp.Input(name, level);
+	scoreboard.score.push_back(tmp);
+	return scoreboard.save();
 }
 
 void Game::updatePeople(char c) {

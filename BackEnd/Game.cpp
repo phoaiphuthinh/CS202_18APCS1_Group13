@@ -54,7 +54,39 @@ void Game::draw() {
 		x->draw();
 	for (auto x : vehicle)
 		x->draw();
-	//Draw traffic lights -> boloxi
+	
+	if (trafficLights.size() != 0)
+	{
+		int t = trafficLights[0].getTime();
+		
+		char a = 220;
+
+		if (trafficLights[0].getState() == 1) // xanh
+		{
+			textcolor(10);
+			gotoXY(105, 18);
+			std::cout << a;
+		}
+		else if (trafficLights[0].getState() == 0)  // do
+		{
+			gotoXY(105, 18);
+			textcolor(12);
+			std::cout << a;
+		}
+
+		if (trafficLights.size() > 1) 
+		{
+			gotoXY(105, 18);
+			textcolor(12);
+			std::cout << a;
+		}
+
+		gotoXY(105, 19);
+		textcolor(15);
+		std::cout << a;
+		textcolor(10);
+	
+	}
 	player.draw();
 }
 

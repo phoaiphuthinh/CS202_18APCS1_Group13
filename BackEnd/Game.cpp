@@ -58,7 +58,8 @@ void Game::draw() {
 	if (trafficLights.size() != 0)
 	{
 		int t = trafficLights[0].getTime();
-		
+		gotoXY(105, 17);
+		std::cout << t;
 		char a = 220;
 
 		if (trafficLights[0].getState() == 1) // xanh

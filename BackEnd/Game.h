@@ -32,6 +32,7 @@ public:
 	bool loadGame(std::string name);
 	bool loadScoreboard();
 	bool saveScoreboard(std::string name);
+	Scoreboard getScoreboard();
 	void saveGame(std::string name);
 	void updatePeople(char c);
 	void update();

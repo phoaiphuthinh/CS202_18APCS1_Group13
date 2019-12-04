@@ -35,9 +35,16 @@ void playGame() {
 
 int main() {
 	int command = SplashScreen();
-	if (command == 3)
+	if (command == 4)
 		return 0;
 	isRunning = true;
+	if (command == 3)
+	{
+		//Print scoreboard
+		game.loadScoreboard();
+		game.getScoreboard().draw();
+		std::cin.ignore();
+	}
 	if (command == 2) {
 		//Ask what name -> BOLOXI
 		std::string name = "boloxi";
@@ -69,6 +76,11 @@ int main() {
 				isRunning = true;
 			}
 		} else {
+			//Ask what name -> boloxi
+			std::string name = "calasu";
+			game.saveScoreboard(name);
+			/*game.getScoreboard().draw();
+			std::cin.ignore();*/
 			if (temp == 'Y') {
 				game.startGame();
 				isRunning = true;

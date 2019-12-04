@@ -196,10 +196,17 @@ bool Game::loadScoreboard()
 
 bool Game::saveScoreboard(std::string name)
 {
+	loadScoreboard();
 	Score tmp;
 	tmp.Input(name, level);
 	scoreboard.score.push_back(tmp);
+	scoreboard.sort();
 	return scoreboard.save();
+}
+
+Scoreboard Game::getScoreboard()
+{
+	return scoreboard;
 }
 
 void Game::updatePeople(char c) {

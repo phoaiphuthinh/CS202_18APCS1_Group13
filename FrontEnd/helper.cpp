@@ -22,3 +22,11 @@ void textcolor(int x)
 	mau = GetStdHandle(STD_OUTPUT_HANDLE);
 	SetConsoleTextAttribute(mau, x);
 }
+
+std::string yourname()
+{
+	std::string name;
+	std::cout << "What is your name: ";
+	getline(std::cin, name);
+	return name;
+}

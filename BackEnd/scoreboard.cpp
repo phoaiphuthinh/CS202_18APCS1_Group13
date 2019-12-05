@@ -23,6 +23,7 @@ bool Scoreboard::load()
 			tmp.Input(name, level);
 			score.push_back(tmp);
 		}
+		score.resize(10);
 		loadfile.close();
 		return true;
 	}
@@ -32,6 +33,7 @@ bool Scoreboard::load()
 
 bool Scoreboard::save()
 {
+	score.resize(10);
 	std::ofstream savefile("./data/scoreboard.dat", std::ios_base::binary);
 	if (savefile.good())
 	{
@@ -52,5 +54,40 @@ bool Scoreboard::save()
 	}
 	savefile.close();
 	return false;
+}
+
+void Scoreboard::sort()
+{
+	for (int k = 0; k < score.size(); k++)
+	{
+		for (int i = 0; i < score.size() - 1; i++) {
+			if (score[i].getLevel() < score[i + 1].getLevel())
+			{
+				Score temp = score[i];
+				score[i] = score[i + 1];
+				score[i + 1] = temp;
+			}
+		}
+	}
+}
+
+void Scoreboard::draw()
+{
+	system("cls");
+	cout << setfill('-') << setw(55) << "";
+	cout << setfill(' ') << "\n";
+	cout << "| " << setw(15) << left << "RANKING";
+	cout << "| " << setw(25) << left << "NAME";
+	cout << "| " << setw(10) << left << "LEVEL";
+	cout << "| " << setfill('-') << setw(55) << "\n";
+	cout << setfill(' ') << "\n";
+	for (int i = 0; i < score.size(); i++) {
+		cout << "| " << setw(15) << left << i + 1;
+		cout << "| " << setw(25) << left << score[i].getName();
+		cout << "| " << setw(10) << left << score[i].getLevel();
+		cout << "|\n";
+		cout << setfill('-') << setw(55) << "";
+		cout << setfill(' ') << "\n";
+	}
 }
 

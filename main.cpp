@@ -1,10 +1,12 @@
 #pragma comment(lib, "winmm.lib")
 #include <thread>
+#include <mutex>
 #include "BackEnd/Game.h"
 #include "FrontEnd/SplashScreen.h"
 bool isRunning = false;
 Game game;
 char MOVING;
+std::mutex mtx;
 
 void exitGame(std::thread* t) {
 	isRunning = false;
@@ -38,9 +40,10 @@ int main() {
 	if (command == 3)
 		return 0;
 	isRunning = true;
-	if (command == 2) {
-		//Ask what name -> BOLOXI
-		std::string name = "boloxi";
+	if (command == 2) 
+	{
+		system("cls");
+		std::string name=yourname();
 		game.loadGame(name);
 		game.draw();
 		isRunning = false;
@@ -61,8 +64,16 @@ int main() {
 				isRunning = false;
 			else if (temp == 'L') {
 				isRunning = false;
-				//Ask what name -> boloxi
-				std::string name = "boloxi";
+				Sleep(100);
+				//std::mutex mtx;
+				std::string name;
+				mtx.lock();
+				gotoXY(105, 25);
+				std::cout << "What is your name: ";
+				gotoXY(125, 25);
+				getline(std::cin, name);
+				mtx.unlock();
+
 				game.saveGame(name);
 			} else {
 				MOVING = temp;

@@ -18,7 +18,7 @@ bool Scoreboard::load()
 			Score tmp;
 			std::string name;
 			int level;
-			std::getline(loadfile, name, '\0'); // get player name
+			//loadfile.read(name, '\0'); // get player name
 			loadfile.read((char*)&level, sizeof(int)); // read int bytes
 			tmp.Input(name, level);
 			score.push_back(tmp);

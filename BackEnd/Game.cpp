@@ -17,7 +17,6 @@ Game::~Game() {
 	vehicle.clear();
 	trafficLights.clear();
 	Score tmp;
-
 }
 
 void Game::draw() {
@@ -91,7 +90,7 @@ void Game::draw() {
 	player.draw();
 }
 
-void Game::saveGame(std::string name) {
+void Game::saveGame() {
 	/*
 			FORMAT FILE
 			- 0th: level
@@ -106,7 +105,7 @@ void Game::saveGame(std::string name) {
 		At first, save data in text file. If it works perfectly, store in binary file.
 	*/
 	std::ofstream f;
-	f.open("./data/" + name + ".dat", std::ios::out | std::ios::binary);
+	f.open("./data/" +this->name + ".dat", std::ios::out | std::ios::binary);
 	f.write((char*)&level, sizeof(int));
 	int x = player.getX();
 	f.write((char*)&x, sizeof(int));
@@ -149,6 +148,7 @@ bool Game::loadGame(std::string name) {
 	if (!f.is_open())
 		return false;
 	Game::~Game();
+	this->name = name;
 	f.read((char*)&level, sizeof(int));
 	int x, y;
 	f.read((char*)&x, sizeof(int));
@@ -194,7 +194,7 @@ bool Game::loadScoreboard()
 	return scoreboard.load();
 }
 
-bool Game::saveScoreboard(std::string name)
+bool Game::saveScoreboard()
 {
 	loadScoreboard();
 	Score tmp;
@@ -284,9 +284,10 @@ void Game::levelUp() {
 	}
 }
 
-void Game::startGame() {
+void Game::startGame(std::string name) {
 	level = 0;
 	levelUp();
+	this->name = name;
 }
 
 bool Game::finish() {

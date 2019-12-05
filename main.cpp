@@ -4,6 +4,7 @@
 #include "BackEnd/Game.h"
 #include "FrontEnd/SplashScreen.h"
 bool isRunning = false;
+bool isBreak = false;
 Game game;
 char MOVING;
 std::mutex mtx;
@@ -24,6 +25,7 @@ void playGame() {
 			game.draw();
 			if (game.endGame()) {
 				isRunning = false;
+				game.saveScoreboard();
 			}
 			if (game.finish()) {
 				isRunning = false;
@@ -32,63 +34,85 @@ void playGame() {
 			}
 			Sleep(100);
 		}
+		if (isBreak)
+			break;
 	}
 }
 
 int main() {
-	int command = SplashScreen();
-	if (command == 3)
-		return 0;
-	isRunning = true;
-	if (command == 2) 
-	{
-		system("cls");
-		std::string name=yourname();
-		game.loadGame(name);
-		game.draw();
-		isRunning = false;
-	}
-	else
-		game.startGame();
-	std::thread t(playGame);
 	while (true) {
-		int temp = toupper(_getch());
-		
-		if (temp == 27) {
-			exitGame(&t);
+		int command = SplashScreen();
+		if (command == 4)
 			break;
+		if (command == 3) {
+			//Print scoreboard
+			game.loadScoreboard();
+			game.getScoreboard().draw();
+			std::cin.ignore();
 		}
+		isRunning = true;
+		isBreak = false;
+		std::string name;
+		if (command == 2)
+		{
+			system("cls");
+			name = yourname();
+			game.loadGame(name);
+			game.draw();
+			isRunning = false;
+		}
+		else {
+			//std::mutex mtx;
+			system("cls");
+			//mtx.lock();
+			gotoXY(105, 25);
+			std::cout << "What is your name: ";
+			gotoXY(125, 25);
+			getline(std::cin, name);
+			//mtx.unlock();
+			game.startGame(name);
+		}
+		std::thread t(playGame);
 
-		if (!game.isDead()) {
-			if (temp == 'P')
-				isRunning = false;
-			else if (temp == 'L') {
-				isRunning = false;
-				Sleep(100);
-				//std::mutex mtx;
-				std::string name;
-				mtx.lock();
-				gotoXY(105, 25);
-				std::cout << "What is your name: ";
-				gotoXY(125, 25);
-				getline(std::cin, name);
-				mtx.unlock();
+		while (true) {
+			int temp = toupper(_getch());
 
-				game.saveGame(name);
-			} else {
-				MOVING = temp;
-				isRunning = true;
-			}
-		} else {
-			if (temp == 'Y') {
-				game.startGame();
-				isRunning = true;
-			}
-			else {
+			if (temp == 27) {
+				isRunning = false;
+				isBreak = true;
 				exitGame(&t);
+				Sleep(500);
 				break;
 			}
+
+			if (!game.isDead()) {
+				if (temp == 'P')
+					isRunning = false;
+				else if (temp == 'L') {
+					isRunning = false;
+					game.saveGame();
+				}
+				else {
+					MOVING = temp;
+					isRunning = true;
+				}
+			}
+			else {
+				if (temp == 'Y') {
+					game.startGame(name);
+					isRunning = true;
+				}
+				else {
+					isRunning = false;
+					isBreak = true;
+					exitGame(&t);
+					Sleep(500);
+					break;
+				}
+			}
 		}
+		if (t.joinable())
+			t.join();
 	}
 	return 0;
 }

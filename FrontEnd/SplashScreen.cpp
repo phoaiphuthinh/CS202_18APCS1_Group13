@@ -3,7 +3,7 @@
 int SplashScreen()
 {
 
-	
+	system("cls");
 	cout << "\t\t\t\t";
 	textcolor(14);
 	cout << "  RRRRRRRRRRRRRRRRR        OOOOOOOOO                 AAA               DDDDDDDDDDDDD        " << endl;

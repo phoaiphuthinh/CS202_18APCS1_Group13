@@ -25,19 +25,20 @@ private:
 	int level; 
 	people player;
 	Scoreboard scoreboard;
+	std::string name;
 public:
 	Game();
 	~Game();
 	void draw();
 	bool loadGame(std::string name);
 	bool loadScoreboard();
-	bool saveScoreboard(std::string name);
+	bool saveScoreboard();
 	Scoreboard getScoreboard();
-	void saveGame(std::string name);
+	void saveGame();
 	void updatePeople(char c);
 	void update();
 	void levelUp();
-	void startGame();
+	void startGame(std::string name);
 	bool finish();
 	bool isDead();
 	bool endGame();

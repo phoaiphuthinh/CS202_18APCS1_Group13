@@ -50,6 +50,56 @@ void Game::draw() {
 		gotoXY(102, 1 + i);
 		std::cout << "|";
 	}
+
+
+	/*for (int i = 0; i < 20; i++)
+	{
+		gotoXY(110, 1 + i);
+		textcolor(9);
+		std::cout << "|";
+		gotoXY(140, 1 + i);
+		std::cout << "|";
+
+		textcolor(10);
+	}*/
+
+	DrawRect(110, 0, 45, 30,0,0);
+	textcolor(46);
+	gotoXY(125, 3);
+	std::cout << "INSTRUCTIONS";
+	textcolor(11);
+	gotoXY(117, 7);
+	std::cout << "PRESS L TO SAVE GAME";
+	gotoXY(117, 9);
+	std::cout << "PRESS Y TO RESTART GAME WHEN DIE";
+	gotoXY(117, 11);
+	std::cout << "PRESS P TO PAUSE GAME";
+	textcolor(10);
+
+	textcolor(12);
+	gotoXY(117, 14);
+	std::cout << "PRESS A TO MOVE TO THE LEFT";
+	gotoXY(117, 16);
+	std::cout << "PRESS D TO MOVE TO THE RIGHT";
+	gotoXY(117, 18);
+	std::cout << "PRESS W TO MOVE UPWARD";
+	gotoXY(117, 20);
+	std::cout << "PRESS S TO MOVE DOWNWARD";
+	textcolor(10);
+
+	/*for (int i = 0; i < 30; i++)
+	{
+		gotoXY(i+111, 0);
+		textcolor(9);
+		std::cout << "_";
+
+		gotoXY(i + 111, 6);
+		std::cout << "_"; 
+
+		textcolor(10);
+		
+	}*/
+
 	for (auto x : animal)
 		x->draw();
 	for (auto x : vehicle)
@@ -59,7 +109,7 @@ void Game::draw() {
 	{
 		int t = trafficLights[0].getTime();
 		gotoXY(105, 17);
-		std::cout << t;
+		std::cout << t << "  ";
 		char a = 220;
 
 		if (trafficLights[0].getState() == 1) // xanh
@@ -148,6 +198,9 @@ bool Game::loadGame(std::string name) {
 	f.open("./data/" + name + ".dat", std::ios::in | std::ios::binary);
 	if (!f.is_open())
 		return false;
+
+	PlaySound(TEXT("./sources/background.wav"), NULL, SND_ASYNC | SND_LOOP);
+
 	Game::~Game();
 	this->name = name;
 	f.read((char*)&level, sizeof(int));

@@ -64,10 +64,8 @@ bool people::isImpact(const std::vector<Vehicle*>& vVehicle)
 		if (vVehicle[i]->getY() == mY) //check whether they are in the same lane
 		{
 
-			if ((mX >= vVehicle[i]->getX() &&
-				mX <= vVehicle[i]->getX() + vVehicle[i]->getWidth())
-				|| (mX + width >= vVehicle[i]->getX() &&
-					mX + width <= vVehicle[i]->getX() + vVehicle[i]->getWidth()))
+			if ((mX + 2 >= vVehicle[i]->getX() &&
+				mX + 2 <= vVehicle[i]->getX() + vVehicle[i]->getWidth()))
 			{
 				mState = false;
 				vVehicle[i]->makeSound();
@@ -84,10 +82,8 @@ bool people::isImpact(const std::vector<Animal*>& vAnimal)
 	{
 		if (vAnimal[i]->getY() == mY) //check whether they are in the same lane
 		{
-			if ((mX >= vAnimal[i]->getX() &&
-				mX <= vAnimal[i]->getX() + vAnimal[i]->getWidth())
-				|| (mX + width >= vAnimal[i]->getX() &&
-					mX + width <= vAnimal[i]->getX() + vAnimal[i]->getWidth()))
+			if ((mX + 2 >= vAnimal[i]->getX() &&
+				mX + 2 <= vAnimal[i]->getX() + vAnimal[i]->getWidth()))
 			{
 				mState = false;
 				vAnimal[i]->makeSound();

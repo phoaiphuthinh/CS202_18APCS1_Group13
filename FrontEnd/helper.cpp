@@ -45,3 +45,34 @@ void clearMap()
 	gotoXY(0, 0);
 }
 
+void ShowConsoleCursor(bool showFlag)
+{
+	HANDLE out = GetStdHandle(STD_OUTPUT_HANDLE);
+
+	CONSOLE_CURSOR_INFO     cursorInfo;
+
+	GetConsoleCursorInfo(out, &cursorInfo);
+	cursorInfo.bVisible = showFlag; // set the cursor visibility
+	SetConsoleCursorInfo(out, &cursorInfo);
+}
+void DrawRect(int x, int y, int width, int height, int curPosX, int curPosY)
+{
+	gotoXY(x, y); 
+	std::cout << char(201);
+	for (int i = 1; i < width; i++)
+		std::cout << char(205);
+	std::cout << char(187);
+	gotoXY(x, height + y); 
+	std::cout << char(200);
+	for (int i = 1; i < width; i++)
+		std::cout << char(205);
+	std::cout << char(188);
+	for (int i = y + 1; i < height + y; i++)
+	{
+		gotoXY(x, i); 
+		std::cout << char(186);
+		gotoXY(x + width, i); 
+		std::cout << char(186);
+	}
+	gotoXY(curPosX, curPosY);
+}

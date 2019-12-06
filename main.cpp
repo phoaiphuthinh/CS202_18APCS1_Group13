@@ -68,10 +68,12 @@ int main() {
 				//std::mutex mtx;
 				system("cls");
 				//mtx.lock();
-				gotoXY(105, 25);
+				gotoXY(117, 25);
+				textcolor(13);
 				std::cout << "What is your name: ";
-				gotoXY(125, 25);
+				gotoXY(137, 25);
 				getline(std::cin, name);
+				textcolor(10);
 				//mtx.unlock();
 				game.startGame(name);
 			}

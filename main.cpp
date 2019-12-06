@@ -50,71 +50,76 @@ int main() {
 			//Print scoreboard
 			game.getScoreboard().draw();
 			std::cin.ignore();
-		}
-		isRunning = true;
-		isBreak = false;
-		std::string name;
-		if (command == 2)
-		{
-			system("cls");
-			name = yourname();
-			game.loadGame(name);
-			game.draw();
-			isRunning = false;
+
 		}
 		else {
-			//std::mutex mtx;
-			system("cls");
-			//mtx.lock();
-			gotoXY(105, 25);
-			std::cout << "What is your name: ";
-			gotoXY(125, 25);
-			getline(std::cin, name);
-			//mtx.unlock();
-			game.startGame(name);
-		}
-		std::thread t(playGame);
-
-		while (true) {
-			int temp = toupper(_getch());
-
-			if (temp == 27) {
+			isRunning = true;
+			isBreak = false;
+			std::string name;
+			if (command == 2)
+			{
+				system("cls");
+				name = yourname();
+				game.loadGame(name);
+				game.draw();
 				isRunning = false;
-				isBreak = true;
-				exitGame(&t);
-				Sleep(500);
-				break;
-			}
-
-			if (!game.isDead()) {
-				if (temp == 'P')
-					isRunning = false;
-				else if (temp == 'L') {
-					isRunning = false;
-					game.saveGame();
-				}
-				else {
-					MOVING = temp;
-					isRunning = true;
-				}
 			}
 			else {
-				game.saveScoreboard();
-				if (temp == 'Y') {
-					game.startGame(name);
-					isRunning = true;
-				}
-				else {
+				//std::mutex mtx;
+				system("cls");
+				//mtx.lock();
+				gotoXY(105, 25);
+				std::cout << "What is your name: ";
+				gotoXY(125, 25);
+				getline(std::cin, name);
+				//mtx.unlock();
+				game.startGame(name);
+			}
+			std::thread t(playGame);
+
+			while (true) {
+				int temp = toupper(_getch());
+
+				if (temp == 27) {
+					if (game.isDead())
+						game.saveScoreboard();
 					isRunning = false;
 					isBreak = true;
 					exitGame(&t);
 					Sleep(500);
 					break;
 				}
+
+				if (!game.isDead()) {
+					if (temp == 'P')
+						isRunning = false;
+					else if (temp == 'L') {
+						isRunning = false;
+						game.saveGame();
+					}
+					else {
+						MOVING = temp;
+						isRunning = true;
+					}
+				}
+				else {
+					game.saveScoreboard();
+					if (temp == 'Y') {
+						game.startGame(name);
+						isRunning = true;
+					}
+					else {
+						isRunning = false;
+						isBreak = true;
+						exitGame(&t);
+						Sleep(500);
+						break;
+					}
+				}
 			}
+			if (t.joinable())
+				t.join();
 		}
-		if (t.joinable())
-			t.join();
 	}
 	return 0;
 }

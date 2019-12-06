@@ -8,6 +8,7 @@ private:
 public:
 	void Input(std::string name_, int level_ );
 	std::string getName();
+	void update(int newLevel);
 	int getLevel()
 	{
 		return level;

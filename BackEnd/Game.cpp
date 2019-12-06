@@ -262,7 +262,9 @@ void Game::levelUp() {
 	PlaySound(TEXT("./sources/background.wav"), NULL, SND_ASYNC | SND_LOOP);
 	srand(time(NULL));
 	level++;
+	std::string tmp = this->name;
 	Game::~Game();
+	this->name = tmp;
 	player = people();
 	int n = min(level + rand() % 2, 5);
 	vehicle.assign(2 * n, nullptr);

@@ -26,7 +26,7 @@ bool Scoreboard::load()
 				score.push_back(tmp);
 		}
 		sort();
-		score.resize(10);
+		score.resize(std::min(10, num));
 		loadfile.close();
 		return true;
 	}
@@ -36,7 +36,7 @@ bool Scoreboard::load()
 
 bool Scoreboard::save()
 {
-	score.resize(10);
+	score.resize(std::min(10,(int)score.size()));
 	std::ofstream savefile("./data/scoreboard.dat", std::ios_base::binary);
 	if (savefile.good())
 	{

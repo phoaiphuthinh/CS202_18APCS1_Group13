@@ -5,6 +5,7 @@
 #include "score.h"
 #include <fstream>
 #include <iomanip>
+#include <algorithm>
 using std::cout;
 using std::setw;
 using std::left;
@@ -23,8 +24,11 @@ public:
 	{
 		for (int i=0; i<score.size(); i++)
 		{
-			if (score[i].getName() == other.getName() && score[i].getLevel() == other.getLevel())
+			if (score[i].getName() == other.getName()) {
+				//&& score[i].getLevel() == other.getLevel())
+				score[i].update(other.getLevel());
 				return true;
+			}
 		}
 		return false;
 	}

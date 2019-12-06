@@ -10,3 +10,7 @@ std::string Score::getName()
 	return name;
 }
 
+void Score::update(int newLevel) {
+	if (newLevel > level)
+		level = newLevel;
+}

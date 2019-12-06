@@ -25,7 +25,6 @@ void playGame() {
 			game.draw();
 			if (game.endGame()) {
 				isRunning = false;
-				game.saveScoreboard();
 			}
 			if (game.finish()) {
 				isRunning = false;
@@ -40,13 +39,15 @@ void playGame() {
 }
 
 int main() {
+	int count=0;
 	while (true) {
-		int command = SplashScreen();
+		game.loadScoreboard();
+		int command = SplashScreen(count);
+		count++;
 		if (command == 4)
 			break;
 		if (command == 3) {
 			//Print scoreboard
-			game.loadScoreboard();
 			game.getScoreboard().draw();
 			std::cin.ignore();
 		}
@@ -98,6 +99,7 @@ int main() {
 				}
 			}
 			else {
+				game.saveScoreboard();
 				if (temp == 'Y') {
 					game.startGame(name);
 					isRunning = true;

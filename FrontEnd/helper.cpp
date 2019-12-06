@@ -30,3 +30,18 @@ std::string yourname()
 	getline(std::cin, name);
 	return name;
 }
+
+void clearMap()
+{
+	gotoXY(0, 0);
+	for (int j = 0; j < 43; j++)
+	{
+		if (j % 7 == 0) {}
+		else {
+			gotoXY(2, j);
+			std::cout << "                                                                                                    ";
+		}
+	}
+	gotoXY(0, 0);
+}
+

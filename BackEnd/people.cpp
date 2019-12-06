@@ -51,7 +51,9 @@ void people::Right(int width)
 void people::Down(int height)
 {
 	if (mY + height <= 40)
+	{
 		mY += height;
+	}
 }
 
 bool people::isImpact(const std::vector<Vehicle*>& vVehicle)

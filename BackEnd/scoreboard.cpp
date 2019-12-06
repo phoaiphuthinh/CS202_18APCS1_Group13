@@ -18,11 +18,14 @@ bool Scoreboard::load()
 			Score tmp;
 			std::string name;
 			int level;
-			//loadfile.read(name, '\0'); // get player name
+			loadfile.ignore('\0', 1000); // get player name
+			std::getline(loadfile, name, '\0'); // get player name
 			loadfile.read((char*)&level, sizeof(int)); // read int bytes
 			tmp.Input(name, level);
-			score.push_back(tmp);
+			if (!isExisted(tmp))
+				score.push_back(tmp);
 		}
+		sort();
 		score.resize(10);
 		loadfile.close();
 		return true;

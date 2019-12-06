@@ -19,4 +19,13 @@ public:
 	bool save();
 	void sort();
 	void draw();
+	bool isExisted(Score other)
+	{
+		for (int i=0; i<score.size(); i++)
+		{
+			if (score[i].getName() == other.getName() && score[i].getLevel() == other.getLevel())
+				return true;
+		}
+		return false;
+	}
 };

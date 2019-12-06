@@ -5,7 +5,6 @@
 #include "helper.h"
 #include "shape.h"
 using namespace std;
-
-int SplashScreen();
+int SplashScreen(int count);
 int ChoosingMenu(int x, int firstline, int lastline);
 #endif 

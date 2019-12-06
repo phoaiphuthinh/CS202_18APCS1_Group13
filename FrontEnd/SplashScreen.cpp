@@ -1,59 +1,58 @@
 #include "SplashScreen.h"
 
-int SplashScreen()
+int SplashScreen(int count)
 {
-
 	system("cls");
 	cout << "\t\t\t\t";
 	textcolor(14);
 	cout << "  RRRRRRRRRRRRRRRRR        OOOOOOOOO                 AAA               DDDDDDDDDDDDD        " << endl;
-	Sleep(100);
+	if (count == 0) Sleep(100);
 	cout << "\t\t\t\t";
-	cout << "  R::::::::::::::::R     OO:::::::::OO              A:::A              D::::::::::::DDD     "<< endl;
-	Sleep(100);
+	cout << "  R::::::::::::::::R     OO:::::::::OO              A:::A              D::::::::::::DDD     " << endl;
+	if (count == 0) Sleep(100);
 	cout << "\t\t\t\t";
-	cout << "  R::::::RRRRRR:::::R  OO:::::::::::::OO           A:::::A             D:::::::::::::::DD   "<< endl;
-	Sleep(100);
+	cout << "  R::::::RRRRRR:::::R  OO:::::::::::::OO           A:::::A             D:::::::::::::::DD   " << endl;
+	if (count == 0) Sleep(100);
 	cout << "\t\t\t\t";
-	cout << "  RR:::::R     R:::::RO:::::::OOO:::::::O         A:::::::A            DDD:::::DDDDD:::::D  "<< endl;
-	Sleep(100);
+	cout << "  RR:::::R     R:::::RO:::::::OOO:::::::O         A:::::::A            DDD:::::DDDDD:::::D  " << endl;
+	if (count == 0) Sleep(100);
 	cout << "\t\t\t\t";
-	cout << "    R::::R     R:::::RO::::::O   O::::::O        A:::::::::A             D:::::D    D:::::D "<< endl;
-	Sleep(100);
+	cout << "    R::::R     R:::::RO::::::O   O::::::O        A:::::::::A             D:::::D    D:::::D " << endl;
+	if (count == 0) Sleep(100);
 	cout << "\t\t\t\t";
-	cout << "    R::::R     R:::::RO:::::O     O:::::O       A:::::A:::::A            D:::::D     D:::::D"<< endl;
-	Sleep(100);
+	cout << "    R::::R     R:::::RO:::::O     O:::::O       A:::::A:::::A            D:::::D     D:::::D" << endl;
+	if (count == 0) Sleep(100);
 	cout << "\t\t\t\t";
-	cout << "    R::::RRRRRR:::::R O:::::O     O:::::O      A:::::A A:::::A           D:::::D     D:::::D"<< endl;
-	Sleep(100);
+	cout << "    R::::RRRRRR:::::R O:::::O     O:::::O      A:::::A A:::::A           D:::::D     D:::::D" << endl;
+	if (count == 0) Sleep(100);
 	cout << "\t\t\t\t";
-	cout << "    R:::::::::::::RR  O:::::O     O:::::O     A:::::A   A:::::A          D:::::D     D:::::D"<< endl;
-	Sleep(100);
+	cout << "    R:::::::::::::RR  O:::::O     O:::::O     A:::::A   A:::::A          D:::::D     D:::::D" << endl;
+	if (count == 0) Sleep(100);
 	cout << "\t\t\t\t";
-	cout << "    R::::RRRRRR:::::R O:::::O     O:::::O    A:::::A     A:::::A         D:::::D     D:::::D"<< endl;
-	Sleep(100);
+	cout << "    R::::RRRRRR:::::R O:::::O     O:::::O    A:::::A     A:::::A         D:::::D     D:::::D" << endl;
+	if (count == 0) Sleep(100);
 	cout << "\t\t\t\t";
-	cout << "    R::::R     R:::::RO:::::O     O:::::O   A:::::AAAAAAAAA:::::A        D:::::D     D:::::D"<< endl;
-	Sleep(100);
+	cout << "    R::::R     R:::::RO:::::O     O:::::O   A:::::AAAAAAAAA:::::A        D:::::D     D:::::D" << endl;
+	if (count == 0) Sleep(100);
 	cout << "\t\t\t\t";
-	cout << "    R::::R     R:::::RO:::::O     O:::::O  A:::::::::::::::::::::A       D:::::D     D:::::D"<< endl;
-	Sleep(100);
+	cout << "    R::::R     R:::::RO:::::O     O:::::O  A:::::::::::::::::::::A       D:::::D     D:::::D" << endl;
+	if (count == 0) Sleep(100);
 	cout << "\t\t\t\t";
-	cout << "    R::::R     R:::::RO::::::O   O::::::O A:::::AAAAAAAAAAAAA:::::A      D:::::D    D:::::D "<< endl;
-	Sleep(100);
+	cout << "    R::::R     R:::::RO::::::O   O::::::O A:::::AAAAAAAAAAAAA:::::A      D:::::D    D:::::D " << endl;
+	if (count == 0) Sleep(100);
 	cout << "\t\t\t\t";
-	cout << "  RR:::::R     R:::::RO:::::::OOO:::::::OA:::::A             A:::::A   DDD:::::DDDDD:::::D  "<< endl;
-	Sleep(100);
+	cout << "  RR:::::R     R:::::RO:::::::OOO:::::::OA:::::A             A:::::A   DDD:::::DDDDD:::::D  " << endl;
+	if (count == 0) Sleep(100);
 	cout << "\t\t\t\t";
-	cout << "  R::::::R     R:::::R OO:::::::::::::OOA:::::A               A:::::A  D:::::::::::::::DD   "<< endl;
-	Sleep(100);
+	cout << "  R::::::R     R:::::R OO:::::::::::::OOA:::::A               A:::::A  D:::::::::::::::DD   " << endl;
+	if (count == 0) Sleep(100);
 	cout << "\t\t\t\t";
-	cout << "  R::::::R     R:::::R   OO:::::::::OO A:::::A                 A:::::A D::::::::::::DDD     "<< endl;
-	Sleep(100);
+	cout << "  R::::::R     R:::::R   OO:::::::::OO A:::::A                 A:::::A D::::::::::::DDD     " << endl;
+	if (count == 0) Sleep(100);
 	cout << "\t\t\t\t";
-	cout << "  RRRRRRRR     RRRRRRR     OOOOOOOOO  AAAAAAA                   AAAAAAADDDDDDDDDDDDD  " <<endl;
-	Sleep(100);
-	
+	cout << "  RRRRRRRR     RRRRRRR     OOOOOOOOO  AAAAAAA                   AAAAAAADDDDDDDDDDDDD  " << endl;
+	if (count == 0) Sleep(100);
+
 	cout << endl << endl;
 
 	textcolor(12);
@@ -74,31 +73,33 @@ int SplashScreen()
 	cout << "       CCC::::::::::::CR::::::R     R:::::R   OO:::::::::OO   S:::::::::::::::SS S:::::::::::::::SS I::::::::IN::::::N        N::::::N     GGG::::::GGG:::G" << endl;
 	cout << "          CCCCCCCCCCCCCRRRRRRRR     RRRRRRR     OOOOOOOOO      SSSSSSSSSSSSSSS    SSSSSSSSSSSSSSS   IIIIIIIIIINNNNNNNN         NNNNNNN        GGGGGG   GGGG" << endl;
 
-                
-	 
+
+
 	textcolor(10);
 	//cout << "WELCOME                 
 	cout << "\n\n";
 	cout << "\t\t\t\t\t\t\t";
 	cout << "     WELCOME TO GROUP THE SHADOW GAME" << endl;
 	cout << "\n\n\n\n\n";
-
-	//cout << "LOADING
-	cout << "\t\t\t\t\t\t\t\t";
-	cout << "         Loading..." << endl;
-	cout << "\t\t\t\t\t\t   ";
-	for (int i = 0; i < 50; i++)
+	if (count == 0)
 	{
-		cout << char(178);
+		//cout << "LOADING
+		cout << "\t\t\t\t\t\t\t\t";
+		cout << "         Loading..." << endl;
+		cout << "\t\t\t\t\t\t   ";
+		for (int i = 0; i < 50; i++)
+		{
+			cout << char(178);
+		}
+		cout << "\r\t\t\t\t\t\t   ";
+		for (int i = 0; i < 50; i++)
+		{
+			cout << char(219);
+			Sleep(30);
+		}
+		cout << "\n";
+		cout << "\t\t\t\t\t\t\t     ";
 	}
-	cout << "\r\t\t\t\t\t\t   ";
-	for (int i = 0; i < 50; i++)
-	{
-		cout << char(219);
-		Sleep(30);
-	}
-	cout << "\n";
-	cout << "\t\t\t\t\t\t\t     ";
 
 
 	for (int i = 0; i < 20; i++)
@@ -106,10 +107,10 @@ int SplashScreen()
 		gotoXY(10, 37 + i);
 		cout << "                                                                                                    ";
 	}
-	int x=70, y=38;
+	int x = 70, y = 38;
 	gotoXY(x, y);
 	cout << "1/ START GAME";
-	gotoXY(x, y+1);
+	gotoXY(x, y + 1);
 	cout << "2/ LOAD GAME";
 	gotoXY(x, y + 2);
 	cout << "3/ SCOREBOARD";

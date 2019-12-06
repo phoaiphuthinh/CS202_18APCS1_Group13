@@ -20,7 +20,8 @@ Game::~Game() {
 }
 
 void Game::draw() {
-	system("cls");
+	//system("cls");
+	clearMap();
 	std::cout << "  ";
 	for (int i = 0; i < 42; i++)
 	{
@@ -53,7 +54,7 @@ void Game::draw() {
 		x->draw();
 	for (auto x : vehicle)
 		x->draw();
-	
+
 	if (trafficLights.size() != 0)
 	{
 		int t = trafficLights[0].getTime();
@@ -74,7 +75,7 @@ void Game::draw() {
 			std::cout << a;
 		}
 
-		if (trafficLights.size() > 1) 
+		if (trafficLights.size() > 1)
 		{
 			gotoXY(105, 18);
 			textcolor(12);
@@ -85,7 +86,7 @@ void Game::draw() {
 		textcolor(15);
 		std::cout << a;
 		textcolor(10);
-	
+
 	}
 	player.draw();
 }
@@ -100,12 +101,12 @@ void Game::saveGame() {
 			- Forth line: number of animal (m)
 			- Fiveth line: m coordinates of m animal (xi, yi, sign)
 			- Sixth line: number of trafficlight (k)
-			- Seventh line: state and time remaining of k traffic lights 
-			
+			- Seventh line: state and time remaining of k traffic lights
+
 		At first, save data in text file. If it works perfectly, store in binary file.
 	*/
 	std::ofstream f;
-	f.open("./data/" +this->name + ".dat", std::ios::out | std::ios::binary);
+	f.open("./data/" + this->name + ".dat", std::ios::out | std::ios::binary);
 	f.write((char*)&level, sizeof(int));
 	int x = player.getX();
 	f.write((char*)&x, sizeof(int));
@@ -158,7 +159,7 @@ bool Game::loadGame(std::string name) {
 	f.read((char*)&n, sizeof(int));
 	vehicle.assign(n, nullptr);
 	for (int i = 0; i < n; i++) {
-		int type; 
+		int type;
 		f.read((char*)&x, sizeof(int));
 		f.read((char*)&y, sizeof(int));
 		f.read((char*)&type, sizeof(int));
@@ -199,7 +200,7 @@ bool Game::saveScoreboard()
 	loadScoreboard();
 	Score tmp;
 	tmp.Input(name, level);
-	scoreboard.score.push_back(tmp);
+	if (!scoreboard.isExisted(tmp)) scoreboard.score.push_back(tmp);
 	scoreboard.sort();
 	return scoreboard.save();
 }
@@ -240,7 +241,8 @@ void Game::update() {
 				x->move(1);
 			else if (trafficLights[0].getState() == 1)
 				x->move(-1);
-		} else {
+		}
+		else {
 			if (x->getSign() == 1) {
 				if (trafficLights[1].getState())
 					x->move(1);
@@ -256,6 +258,8 @@ void Game::update() {
 }
 
 void Game::levelUp() {
+	PlaySound(TEXT("./sources/levelup.wav"), NULL, SND_SYNC);
+	PlaySound(TEXT("./sources/background.wav"), NULL, SND_ASYNC | SND_LOOP);
 	srand(time(NULL));
 	level++;
 	Game::~Game();
@@ -271,10 +275,10 @@ void Game::levelUp() {
 			animal[2 * i + 1] = new Moew(rand() % 20 + 2, 33); //lane 4
 		}
 		else {
-			vehicle[2 * i] = new car(20 + (rand() % 3 + 1) + vehicle[2*(i-1)]->getX(), 12); // lane 1
-			vehicle[2 * i + 1] = new ufo(15 + (rand() % 3 + 1) + vehicle[2*(i - 1)+1]->getX(), 19); //lane 2
-			animal[2 * i] = new Duck(10 + (rand() % 3 + 1) + animal[2*(i - 1)]->getX(), 26); //lane 3
-			animal[2 * i + 1] = new Moew(10 + (rand() % 3 + 1) + animal[2*(i - 1)+1]->getX(), 33); //lane 4
+			vehicle[2 * i] = new car(20 + (rand() % 3 + 1) + vehicle[2 * (i - 1)]->getX(), 12); // lane 1
+			vehicle[2 * i + 1] = new ufo(15 + (rand() % 3 + 1) + vehicle[2 * (i - 1) + 1]->getX(), 19); //lane 2
+			animal[2 * i] = new Duck(10 + (rand() % 3 + 1) + animal[2 * (i - 1)]->getX(), 26); //lane 3
+			animal[2 * i + 1] = new Moew(10 + (rand() % 3 + 1) + animal[2 * (i - 1) + 1]->getX(), 33); //lane 4
 		}
 	}
 	if (level > 1) {

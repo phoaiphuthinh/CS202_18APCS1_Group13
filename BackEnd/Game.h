@@ -42,5 +42,6 @@ public:
 	bool finish();
 	bool isDead();
 	bool endGame();
+	int getlevel();
 	//List of other methods
 };

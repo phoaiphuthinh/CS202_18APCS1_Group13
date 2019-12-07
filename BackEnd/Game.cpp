@@ -87,6 +87,12 @@ void Game::draw() {
 	std::cout << "PRESS S TO MOVE DOWNWARD";
 	textcolor(10);
 
+	textcolor(13);
+	gotoXY(117, 23);
+	int lev = getlevel();
+	std::cout << "LEVEL " << lev;
+	textcolor(10);
+
 	/*for (int i = 0; i < 30; i++)
 	{
 		gotoXY(i+111, 0);
@@ -359,4 +365,9 @@ bool Game::isDead() {
 
 bool Game::endGame() {
 	return player.isImpact(vehicle) || player.isImpact(animal);
+}
+
+int Game::getlevel()
+{
+	return level;
 }

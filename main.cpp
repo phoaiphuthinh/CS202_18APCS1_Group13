@@ -41,6 +41,7 @@ void playGame() {
 int main() {
 	int count=0;
 	while (true) {
+		ShowConsoleCursor(false);
 		game.loadScoreboard();
 		int command = SplashScreen(count);
 		count++;

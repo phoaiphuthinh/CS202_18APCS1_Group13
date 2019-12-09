@@ -1,5 +1,0 @@
-﻿  Game.cpp
-c:\users\mac\source\repos\cs202\project\project2.0\project\backend\scoreboard.h(25): warning C4018: '<': signed/unsigned mismatch
-c:\users\mac\source\repos\cs202\project\project2.0\project\backend\game.cpp(113): warning C4309: 'initializing': truncation of constant value
-c:\users\mac\source\repos\cs202\project\project2.0\project\backend\game.cpp(316): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Project.vcxproj -> C:\Users\Mac\source\repos\CS202\Project\Project2.0\Debug\Project.exe

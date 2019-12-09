@@ -133,9 +133,22 @@ void Game::draw() {
 
 		if (trafficLights.size() > 1)
 		{
-			gotoXY(105, 18);
-			textcolor(12);
-			std::cout << a;
+			t = trafficLights[1].getTime();
+			gotoXY(105, 11);
+			textcolor(10);
+			std::cout << t << "  ";
+			if (trafficLights[1].getState() == 1) // xanh
+			{
+				textcolor(10);
+				gotoXY(105, 12);
+				std::cout << a;
+			}
+			else if (trafficLights[1].getState() == 0)  // do
+			{
+				gotoXY(105, 12);
+				textcolor(12);
+				std::cout << a;
+			}
 		}
 
 		gotoXY(105, 19);
@@ -291,7 +304,7 @@ void Game::updatePeople(char c) {
 
 void Game::update() {
 	for (auto &x : trafficLights)
-		x.change(max(10, 30 - level * 2));
+		x.change(max(10, 30 - level * 2 - rand() % 5));
 	for (auto x : vehicle) {
 		if (trafficLights.size() == 0)
 			x->move(x->getSign());
@@ -344,7 +357,7 @@ void Game::levelUp() {
 	}
 	if (level > 1) {
 		trafficLights.push_back(TrafficLights());
-		if (level > 5)
+		if (level > 3)
 			trafficLights.push_back(TrafficLights());
 	}
 }

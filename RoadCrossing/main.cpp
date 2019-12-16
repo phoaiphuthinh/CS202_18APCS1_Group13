@@ -41,6 +41,7 @@ void playGame() {
 int main() {
 	int count=0;
 	while (true) {
+		PlaySound(0, 0, 0);
 		game.loadScoreboard();
 		helper::ShowConsoleCursor(false);
 		int command = Splashscreen::SplashScreen(count);
@@ -61,9 +62,11 @@ int main() {
 			{
 				system("cls");
 				name = helper::yourname();
-				game.loadGame(name);
-				game.draw();
-				isRunning = false;
+				if (game.loadGame(name)){
+					game.draw();
+					isRunning = false;
+				} else 
+					continue;
 			}
 			else {
 				//std::mutex mtx;

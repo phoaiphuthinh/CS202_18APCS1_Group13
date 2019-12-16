@@ -11,6 +11,7 @@ public:
 	people(int x, int y);
 
 	void draw();
+	void clean();
 	void Up(int height);
 
 	void Left(int width);

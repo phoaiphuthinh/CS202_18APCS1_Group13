@@ -14,6 +14,7 @@ public:
 	Animal(int x, int y);
 	~Animal();
 	virtual void draw() = 0;
+	virtual void clean() = 0;
 	virtual void move(int sign); //left or right
 	virtual void makeSound();
 	virtual int getSign() = 0;

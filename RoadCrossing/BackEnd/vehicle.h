@@ -17,6 +17,7 @@ public:
 	int getY();
 	int getWidth();
 	virtual void draw() = 0;
+	virtual void clean() = 0;
 	virtual void move(int sign); //left or right
 	virtual void makeSound() = 0;
 	virtual int getSign() = 0;

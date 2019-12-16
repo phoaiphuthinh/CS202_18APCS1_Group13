@@ -41,9 +41,9 @@ void playGame() {
 int main() {
 	int count=0;
 	while (true) {
-		ShowConsoleCursor(false);
 		game.loadScoreboard();
-		int command = SplashScreen(count);
+		helper::ShowConsoleCursor(false);
+		int command = Splashscreen::SplashScreen(count);
 		count++;
 		if (command == 4)
 			break;
@@ -60,7 +60,7 @@ int main() {
 			if (command == 2)
 			{
 				system("cls");
-				name = yourname();
+				name = helper::yourname();
 				game.loadGame(name);
 				game.draw();
 				isRunning = false;
@@ -69,12 +69,12 @@ int main() {
 				//std::mutex mtx;
 				system("cls");
 				//mtx.lock();
-				gotoXY(117, 25);
-				textcolor(13);
+				helper::gotoXY(117, 25);
+				helper::textcolor(13);
 				std::cout << "What is your name: ";
-				gotoXY(137, 25);
+				helper::gotoXY(137, 25);
 				getline(std::cin, name);
-				textcolor(10);
+				helper::textcolor(10);
 				//mtx.unlock();
 				game.startGame(name);
 			}

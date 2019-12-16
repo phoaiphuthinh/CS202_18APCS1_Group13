@@ -25,7 +25,7 @@ void Animal::move(int sign) {
 		mX = SCREEN_SIZE_WIDTH - w / 2;
 	if (mX - w / 2 > SCREEN_SIZE_WIDTH)
 		mX = -w / 2;
-	//gotoXY(1, 40);
+	//helper::gotoXY(1, 40);
 	//std::cerr << mX << " ";
 }
 

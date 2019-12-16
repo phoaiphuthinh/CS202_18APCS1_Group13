@@ -33,6 +33,7 @@ public:
 	bool loadGame(std::string name);
 	bool loadScoreboard();
 	bool saveScoreboard();
+	int getLev();
 	Scoreboard getScoreboard();
 	void saveGame();
 	void updatePeople(char c);
@@ -42,6 +43,5 @@ public:
 	bool finish();
 	bool isDead();
 	bool endGame();
-	int getlevel();
 	//List of other methods
 };

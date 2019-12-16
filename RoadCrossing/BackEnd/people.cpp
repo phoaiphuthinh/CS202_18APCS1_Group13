@@ -21,37 +21,60 @@ void people::draw()
 {
 	int x = mX;
 	int y = mY;
-	gotoXY(x, y - 3);
+	helper::gotoXY(x, y - 3);
 	std::cout << " 0  " << std::endl;
-	gotoXY(x, y - 2);
+	helper::gotoXY(x, y - 2);
 	std::cout << "/|\\" << std::endl;
-	gotoXY(x, y - 1);
+	helper::gotoXY(x, y - 1);
 	std::cout << " |  " << std::endl;
-	gotoXY(x, y);
+	helper::gotoXY(x, y);
 	std::cout << "/ \\" << std::endl;
+}
+
+void people::clean()
+{
+	int x = mX;
+	int y = mY;
+	helper::gotoXY(x, y - 3);
+	std::cout << "    " << std::endl;
+	helper::gotoXY(x, y - 2);
+	std::cout << "    " << std::endl;
+	helper::gotoXY(x, y - 1);
+	std::cout << "    " << std::endl;
+	helper::gotoXY(x, y);
+	std::cout << "    " << std::endl;
 }
 
 void people::Up(int height)
 {
+	clean();
 	mY -= height;
 }
 
 void people::Left(int width)
 {
 	if (mX - width > 2)
+	{
+		clean();
 		mX -= width;
+	}
 }
 
 void people::Right(int width)
 {
 	if (mX + width <= 49 + 25 * 2 - 1)
+	{
+		clean();
 		mX += width;
+	}
+
 }
 
 void people::Down(int height)
 {
 	if (mY + height <= 40)
 	{
+		clean();
 		mY += height;
 	}
 }
@@ -96,7 +119,9 @@ bool people::isImpact(const std::vector<Animal*>& vAnimal)
 
 bool people::isFinish()
 {
-	if (mY == DEFAULT_Y - 7 * 5) return true;
+	if (mY == DEFAULT_Y - 7 * 5) { 
+		return true;
+	}
 	else return false;
 }
 

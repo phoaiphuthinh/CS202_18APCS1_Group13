@@ -25,53 +25,53 @@ void drawcar(int x, int y,int d)
 
 		if (x>=2 && x <= 101 - line1.length() + 1)
 		{
-		gotoXY(x, y - 3);
+		helper::gotoXY(x, y - 3);
 		cout << line1 << endl;
-		gotoXY(x, y - 2);
+		helper::gotoXY(x, y - 2);
 		cout << line2 << endl;
-		gotoXY(x, y - 1);
+		helper::gotoXY(x, y - 1);
 		cout << line3 << endl;
-		gotoXY(x, y - 0);
+		helper::gotoXY(x, y - 0);
 		cout << line4 << endl;
 		}
 		else if (x <2)
 		{
-			gotoXY(2, y - 3);
+			helper::gotoXY(2, y - 3);
 			for (int i=2-x;i<line1.length()-1;i++)
 				cout << line1[i];
 			cout << endl;
-			gotoXY(2, y - 2);
+			helper::gotoXY(2, y - 2);
 			for (int i =2-x; i < line2.length() - 1; i++)
 				cout << line2[i];
 			cout << endl;
 
-			gotoXY(2, y - 1);
+			helper::gotoXY(2, y - 1);
 			for (int i = 2-x; i < line3.length() - 1; i++)
 				cout << line3[i];
 			cout << endl;
 
-			gotoXY(2, y - 0);
+			helper::gotoXY(2, y - 0);
 			for (int i = 2-x; i < line4.length() - 1; i++)
 				cout << line4[i];
 			cout<< endl;
 		}
 		else if (x > 101-line1.length()+1)
 		{
-			gotoXY(x, y - 3);
+			helper::gotoXY(x, y - 3);
 			for (int i = 0; i < line1.length() - (x-(101-line1.length()+1)); i++)
 				cout << line1[i];
 			cout << endl;
-			gotoXY(x, y - 2);
+			helper::gotoXY(x, y - 2);
 			for (int i = 0; i < line2.length() - (x - (101 - line2.length() + 1)); i++)
 				cout << line2[i];
 			cout << endl;
 
-			gotoXY(x, y - 1);
+			helper::gotoXY(x, y - 1);
 			for (int i = 0; i < line3.length() - (x - (101 - line3.length() + 1)); i++)
 				cout << line3[i];
 			cout << endl;
 
-			gotoXY(x, y - 0);
+			helper::gotoXY(x, y - 0);
 			for (int i = 0; i < line4.length() - (x - (101 - line4.length() + 1)); i++)
 				cout << line4[i];
 			cout << endl;
@@ -101,53 +101,53 @@ void drawduck(int x, int y, int d)
 
 	if (x >= 2 && x <= 101 - line1.length() + 1)
 	{
-		gotoXY(x, y - 3);
+		helper::gotoXY(x, y - 3);
 		cout << line1 << endl;
-		gotoXY(x, y - 2);
+		helper::gotoXY(x, y - 2);
 		cout << line2 << endl;
-		gotoXY(x, y - 1);
+		helper::gotoXY(x, y - 1);
 		cout << line3 << endl;
-		gotoXY(x, y - 0);
+		helper::gotoXY(x, y - 0);
 		cout << line4 << endl;
 	}
 	else if (x < 2)
 	{
-		gotoXY(2, y - 3);
+		helper::gotoXY(2, y - 3);
 		for (int i = 2 - x; i < line1.length() - 1; i++)
 			cout << line1[i];
 		cout << endl;
-		gotoXY(2, y - 2);
+		helper::gotoXY(2, y - 2);
 		for (int i = 2 - x; i < line2.length() - 1; i++)
 			cout << line2[i];
 		cout << endl;
 
-		gotoXY(2, y - 1);
+		helper::gotoXY(2, y - 1);
 		for (int i = 2 - x; i < line3.length() - 1; i++)
 			cout << line3[i];
 		cout << endl;
 
-		gotoXY(2, y - 0);
+		helper::gotoXY(2, y - 0);
 		for (int i = 2 - x; i < line4.length() - 1; i++)
 			cout << line4[i];
 		cout << endl;
 	}
 	else if (x > 101 - line1.length() + 1)
 	{
-		gotoXY(x, y - 3);
+		helper::gotoXY(x, y - 3);
 		for (int i = 0; i < line1.length() - (x - (101 - line1.length() + 1)); i++)
 			cout << line1[i];
 		cout << endl;
-		gotoXY(x, y - 2);
+		helper::gotoXY(x, y - 2);
 		for (int i = 0; i < line2.length() - (x - (101 - line2.length() + 1)); i++)
 			cout << line2[i];
 		cout << endl;
 
-		gotoXY(x, y - 1);
+		helper::gotoXY(x, y - 1);
 		for (int i = 0; i < line3.length() - (x - (101 - line3.length() + 1)); i++)
 			cout << line3[i];
 		cout << endl;
 
-		gotoXY(x, y - 0);
+		helper::gotoXY(x, y - 0);
 		for (int i = 0; i < line4.length() - (x - (101 - line4.length() + 1)); i++)
 			cout << line4[i];
 		cout << endl;
@@ -163,53 +163,53 @@ void drawufo(int x, int y, int d)
 
 	if (x >= 2 && x <= 101 - line1.length() + 1)
 	{
-		gotoXY(x, y - 3);
+		helper::gotoXY(x, y - 3);
 		cout << line1 << endl;
-		gotoXY(x, y - 2);
+		helper::gotoXY(x, y - 2);
 		cout << line2 << endl;
-		gotoXY(x, y - 1);
+		helper::gotoXY(x, y - 1);
 		cout << line3 << endl;
-		gotoXY(x, y - 0);
+		helper::gotoXY(x, y - 0);
 		cout << line4 << endl;
 	}
 	else if (x < 2)
 	{
-		gotoXY(2, y - 3);
+		helper::gotoXY(2, y - 3);
 		for (int i = 2 - x; i < line1.length() - 1; i++)
 			cout << line1[i];
 		cout << endl;
-		gotoXY(2, y - 2);
+		helper::gotoXY(2, y - 2);
 		for (int i = 2 - x; i < line2.length() - 1; i++)
 			cout << line2[i];
 		cout << endl;
 
-		gotoXY(2, y - 1);
+		helper::gotoXY(2, y - 1);
 		for (int i = 2 - x; i < line3.length() - 1; i++)
 			cout << line3[i];
 		cout << endl;
 
-		gotoXY(2, y - 0);
+		helper::gotoXY(2, y - 0);
 		for (int i = 2 - x; i < line4.length() - 1; i++)
 			cout << line4[i];
 		cout << endl;
 	}
 	else if (x > 101 - line1.length() + 1)
 	{
-		gotoXY(x, y - 3);
+		helper::gotoXY(x, y - 3);
 		for (int i = 0; i < line1.length() - (x - (101 - line1.length() + 1)); i++)
 			cout << line1[i];
 		cout << endl;
-		gotoXY(x, y - 2);
+		helper::gotoXY(x, y - 2);
 		for (int i = 0; i < line2.length() - (x - (101 - line2.length() + 1)); i++)
 			cout << line2[i];
 		cout << endl;
 
-		gotoXY(x, y - 1);
+		helper::gotoXY(x, y - 1);
 		for (int i = 0; i < line3.length() - (x - (101 - line3.length() + 1)); i++)
 			cout << line3[i];
 		cout << endl;
 
-		gotoXY(x, y - 0);
+		helper::gotoXY(x, y - 0);
 		for (int i = 0; i < line4.length() - (x - (101 - line4.length() + 1)); i++)
 			cout << line4[i];
 		cout << endl;
@@ -238,53 +238,53 @@ void drawpig(int x, int y, int d)
 	}
 	if (x >= 2 && x <= 101 - line1.length() + 1)
 	{
-		gotoXY(x, y - 3);
+		helper::gotoXY(x, y - 3);
 		cout << line1 << endl;
-		gotoXY(x, y - 2);
+		helper::gotoXY(x, y - 2);
 		cout << line2 << endl;
-		gotoXY(x, y - 1);
+		helper::gotoXY(x, y - 1);
 		cout << line3 << endl;
-		gotoXY(x, y - 0);
+		helper::gotoXY(x, y - 0);
 		cout << line4 << endl;
 	}
 	else if (x < 2)
 	{
-		gotoXY(2, y - 3);
+		helper::gotoXY(2, y - 3);
 		for (int i = 2 - x; i < line1.length() - 1; i++)
 			cout << line1[i];
 		cout << endl;
-		gotoXY(2, y - 2);
+		helper::gotoXY(2, y - 2);
 		for (int i = 2 - x; i < line2.length() - 1; i++)
 			cout << line2[i];
 		cout << endl;
 
-		gotoXY(2, y - 1);
+		helper::gotoXY(2, y - 1);
 		for (int i = 2 - x; i < line3.length() - 1; i++)
 			cout << line3[i];
 		cout << endl;
 
-		gotoXY(2, y - 0);
+		helper::gotoXY(2, y - 0);
 		for (int i = 2 - x; i < line4.length() - 1; i++)
 			cout << line4[i];
 		cout << endl;
 	}
 	else if (x > 101 - line1.length() + 1)
 	{
-		gotoXY(x, y - 3);
+		helper::gotoXY(x, y - 3);
 		for (int i = 0; i < line1.length() - (x - (101 - line1.length() + 1)); i++)
 			cout << line1[i];
 		cout << endl;
-		gotoXY(x, y - 2);
+		helper::gotoXY(x, y - 2);
 		for (int i = 0; i < line2.length() - (x - (101 - line2.length() + 1)); i++)
 			cout << line2[i];
 		cout << endl;
 
-		gotoXY(x, y - 1);
+		helper::gotoXY(x, y - 1);
 		for (int i = 0; i < line3.length() - (x - (101 - line3.length() + 1)); i++)
 			cout << line3[i];
 		cout << endl;
 
-		gotoXY(x, y - 0);
+		helper::gotoXY(x, y - 0);
 		for (int i = 0; i < line4.length() - (x - (101 - line4.length() + 1)); i++)
 			cout << line4[i];
 		cout << endl;
@@ -296,29 +296,29 @@ void drawboder()
 	cout << "  ";
 	for (int i = 0; i < 42; i++)
 	{
-		gotoXY(1, 1 + i);
+		helper::gotoXY(1, 1 + i);
 		cout << "|";
 	}
 	for (int i = 0; i < 100; i++)
 	{
-		gotoXY(2 + i, 0);
+		helper::gotoXY(2 + i, 0);
 		cout << "_";
-		gotoXY(2+i, 7);
+		helper::gotoXY(2+i, 7);
 		cout << "_";
-		gotoXY(2+i, 14);
+		helper::gotoXY(2+i, 14);
 		cout << "_";
-		gotoXY(2+i, 21);
+		helper::gotoXY(2+i, 21);
 		cout << "_";
-		gotoXY(2+i, 28);
+		helper::gotoXY(2+i, 28);
 		cout << "_";
-		gotoXY(2+i, 35);
+		helper::gotoXY(2+i, 35);
 		cout << "_";
-		gotoXY(2 + i, 42);
+		helper::gotoXY(2 + i, 42);
 		cout << "_";
 	}
 	for (int i = 0; i < 42; i++)
 	{
-		gotoXY(102, 1 + i);
+		helper::gotoXY(102, 1 + i);
 		cout << "|";
 	}
 	drawduck(2, 12, 1);

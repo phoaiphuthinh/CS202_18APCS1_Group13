@@ -1,10 +1,10 @@
 #include "SplashScreen.h"
 
-int SplashScreen(int count)
+int Splashscreen::SplashScreen(int count)
 {
 	system("cls");
 	cout << "\t\t\t\t";
-	textcolor(14);
+	helper::textcolor(14);
 	cout << "  RRRRRRRRRRRRRRRRR        OOOOOOOOO                 AAA               DDDDDDDDDDDDD        " << endl;
 	if (count == 0) Sleep(100);
 	cout << "\t\t\t\t";
@@ -55,7 +55,7 @@ int SplashScreen(int count)
 
 	cout << endl << endl;
 
-	textcolor(12);
+	helper::textcolor(12);
 	cout << "          CCCCCCCCCCCCCRRRRRRRRRRRRRRRRR        OOOOOOOOO        SSSSSSSSSSSSSSS    SSSSSSSSSSSSSSS IIIIIIIIIINNNNNNNN        NNNNNNNN        GGGGGGGGGGGGG" << endl;
 	cout << "       CCC::::::::::::CR::::::::::::::::R     OO:::::::::OO    SS:::::::::::::::S SS:::::::::::::::SI::::::::IN:::::::N       N::::::N     GGG::::::::::::G" << endl;
 	cout << "     CC:::::::::::::::CR::::::RRRRRR:::::R  OO:::::::::::::OO S:::::SSSSSS::::::SS:::::SSSSSS::::::SI::::::::IN::::::::N      N::::::N   GG:::::::::::::::G" << endl;
@@ -75,7 +75,7 @@ int SplashScreen(int count)
 
 
 
-	textcolor(10);
+	helper::textcolor(10);
 	//cout << "WELCOME                 
 	cout << "\n\n";
 	cout << "\t\t\t\t\t\t\t";
@@ -104,17 +104,17 @@ int SplashScreen(int count)
 
 	for (int i = 0; i < 20; i++)
 	{
-		gotoXY(10, 37 + i);
+		helper::gotoXY(10, 37 + i);
 		cout << "                                                                                                    ";
 	}
 	int x = 70, y = 38;
-	gotoXY(x, y);
+	helper::gotoXY(x, y);
 	cout << "1/ START GAME";
-	gotoXY(x, y + 1);
+	helper::gotoXY(x, y + 1);
 	cout << "2/ LOAD GAME";
-	gotoXY(x, y + 2);
+	helper::gotoXY(x, y + 2);
 	cout << "3/ SCOREBOARD";
-	gotoXY(x, y + 3);
+	helper::gotoXY(x, y + 3);
 	cout << "4/ EXIT";
 	cout << "\n\n\n\n\n";
 	int v = ChoosingMenu(x, y, y + 3);
@@ -140,7 +140,7 @@ int SplashScreen(int count)
 
 }
 
-int ChoosingMenu(int x, int firstline, int lastline)
+int Splashscreen::ChoosingMenu(int x, int firstline, int lastline)
 {
 	int v = firstline - 1;
 	char a = 175;
@@ -151,26 +151,26 @@ int ChoosingMenu(int x, int firstline, int lastline)
 			char c = _getch();
 			if (c == 'P' || c == 'S' || c == 's') //down
 			{
-				gotoXY(x - 2, v);
+				helper::gotoXY(x - 2, v);
 				cout << (' ');
 				if (v == lastline)
 				{
 					v = firstline - 1; // truoc dong dau tien cua menu (co dinh)
 				}
 				v = v + 1;
-				gotoXY(x - 2, v);
+				helper::gotoXY(x - 2, v);
 				cout << a;
 			}
 			if (c == 'w' || c == 'W' || c == 'H') //up
 			{
-				gotoXY(x - 2, v);
+				helper::gotoXY(x - 2, v);
 				cout << (' ');
 				if (v <= firstline)
 				{
 					v = lastline + 1;
 				}
 				v = v - 1;
-				gotoXY(x - 2, v);
+				helper::gotoXY(x - 2, v);
 				cout << a;
 			}
 			if (c == 13) // 13 la ma ascii cua enter

@@ -5,12 +5,15 @@
 #include<Windows.h>
 #include<conio.h>
 #include<string>
+class helper {
+public:
+	static void FixConsoleWindow();
+	static void gotoXY(int x, int y);
+	static void textcolor(int x);
+	static std::string yourname();
+	static void clearMap();
+	static void ShowConsoleCursor(bool showFlag);
+	static void DrawRect(int x, int y, int width, int height, int curPosX = 0, int curPosY = 0);
+};
 
-void FixConsoleWindow();
-void gotoXY(int x, int y);
-void textcolor(int x);
-std::string yourname();
-void clearMap();
-void ShowConsoleCursor(bool showFlag);
-void DrawRect(int x, int y, int width, int height, int curPosX = 0, int curPosY = 0);
 #endif // 

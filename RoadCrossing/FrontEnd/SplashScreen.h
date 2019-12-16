@@ -5,6 +5,10 @@
 #include "helper.h"
 #include "shape.h"
 using namespace std;
-int SplashScreen(int count);
-int ChoosingMenu(int x, int firstline, int lastline);
+class Splashscreen {
+public:
+	static int SplashScreen(int count);
+	static int ChoosingMenu(int x, int firstline, int lastline);
+};
+
 #endif 

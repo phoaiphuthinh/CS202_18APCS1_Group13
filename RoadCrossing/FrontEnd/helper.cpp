@@ -1,6 +1,6 @@
 #include "helper.h"
 
-void FixConsoleWindow()
+void helper::FixConsoleWindow()
 {
 	HWND consoleWindow = GetConsoleWindow();
 	LONG style = GetWindowLong(consoleWindow, GWL_STYLE);
@@ -8,7 +8,7 @@ void FixConsoleWindow()
 	SetWindowLong(consoleWindow, GWL_STYLE, style);
 }
 
-void gotoXY(int x, int y)
+void helper::gotoXY(int x, int y)
 {
 	COORD coord;
 	coord.X = x;
@@ -16,14 +16,14 @@ void gotoXY(int x, int y)
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
 
-void textcolor(int x)
+void helper::textcolor(int x)
 {
 	HANDLE mau;
 	mau = GetStdHandle(STD_OUTPUT_HANDLE);
 	SetConsoleTextAttribute(mau, x);
 }
 
-std::string yourname()
+std::string helper::yourname()
 {
 	std::string name;
 	std::cout << "What is your name: ";
@@ -31,21 +31,21 @@ std::string yourname()
 	return name;
 }
 
-void clearMap()
+void helper::clearMap()
 {
-	gotoXY(0, 0);
+	helper::gotoXY(0, 0);
 	for (int j = 0; j < 43; j++)
 	{
 		if (j % 7 == 0) {}
 		else {
-			gotoXY(2, j);
+			helper::gotoXY(2, j);
 			std::cout << "                                                                                                    ";
 		}
 	}
-	gotoXY(0, 0);
+	helper::gotoXY(0, 0);
 }
 
-void ShowConsoleCursor(bool showFlag)
+void helper::ShowConsoleCursor(bool showFlag)
 {
 	HANDLE out = GetStdHandle(STD_OUTPUT_HANDLE);
 
@@ -55,24 +55,24 @@ void ShowConsoleCursor(bool showFlag)
 	cursorInfo.bVisible = showFlag; // set the cursor visibility
 	SetConsoleCursorInfo(out, &cursorInfo);
 }
-void DrawRect(int x, int y, int width, int height, int curPosX, int curPosY)
+void helper::DrawRect(int x, int y, int width, int height, int curPosX, int curPosY)
 {
-	gotoXY(x, y); 
+	helper::gotoXY(x, y); 
 	std::cout << char(201);
 	for (int i = 1; i < width; i++)
 		std::cout << char(205);
 	std::cout << char(187);
-	gotoXY(x, height + y); 
+	helper::gotoXY(x, height + y); 
 	std::cout << char(200);
 	for (int i = 1; i < width; i++)
 		std::cout << char(205);
 	std::cout << char(188);
 	for (int i = y + 1; i < height + y; i++)
 	{
-		gotoXY(x, i); 
+		helper::gotoXY(x, i); 
 		std::cout << char(186);
-		gotoXY(x + width, i); 
+		helper::gotoXY(x + width, i); 
 		std::cout << char(186);
 	}
-	gotoXY(curPosX, curPosY);
+	helper::gotoXY(curPosX, curPosY);
 }

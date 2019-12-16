@@ -8,11 +8,19 @@ Game::Game() {
 
 Game::~Game() {
 	//Destroy animal
+	helper::clearMap();
+	player.clean();
 	for (auto x : animal)
+	{
+		x->clean();
 		delete x;
+	}
 	//Destroy vehicles
 	for (auto x : vehicle)
+	{
+		x->clean();
 		delete x;
+	}
 	animal.clear();
 	vehicle.clear();
 	trafficLights.clear();
@@ -21,140 +29,125 @@ Game::~Game() {
 
 void Game::draw() {
 	//system("cls");
-	clearMap();
 	std::cout << "  ";
-	for (int i = 0; i < 42; i++)
+	/*for (int i = 0; i < 42; i++)
 	{
-		gotoXY(1, 1 + i);
+		helper::gotoXY(1, 1 + i);
 		std::cout << "|";
-	}
+	}*/
 	for (int i = 0; i < 100; i++)
 	{
-		gotoXY(2 + i, 0);
-		std::cout << "_";
-		gotoXY(2 + i, 7);
-		std::cout << "_";
-		gotoXY(2 + i, 14);
-		std::cout << "_";
-		gotoXY(2 + i, 21);
-		std::cout << "_";
-		gotoXY(2 + i, 28);
-		std::cout << "_";
-		gotoXY(2 + i, 35);
-		std::cout << "_";
-		gotoXY(2 + i, 42);
-		std::cout << "_";
+		helper::gotoXY(2 + i, 0);
+		std::cout << char(205);
+		helper::gotoXY(2 + i, 7);
+		std::cout << char(205);
+		helper::gotoXY(2 + i, 14);
+		std::cout << char(205);
+		helper::gotoXY(2 + i, 21);
+		std::cout << char(205);
+		helper::gotoXY(2 + i, 28);
+		std::cout << char(205);
+		helper::gotoXY(2 + i, 35);
+		std::cout << char(205);
+		helper::gotoXY(2 + i, 42);
+		std::cout << char(205);
 	}
-	for (int i = 0; i < 42; i++)
-	{
-		gotoXY(102, 1 + i);
-		std::cout << "|";
-	}
+	//for (int i = 0; i < 42; i++)
+	//{
+	//	helper::gotoXY(102, 1 + i);
+	//	std::cout << "|";
+	//}
 
 
 	/*for (int i = 0; i < 20; i++)
 	{
-		gotoXY(110, 1 + i);
-		textcolor(9);
+		helper::gotoXY(110, 1 + i);
+		helper::textcolor(9);
 		std::cout << "|";
-		gotoXY(140, 1 + i);
+		helper::gotoXY(140, 1 + i);
 		std::cout << "|";
 
-		textcolor(10);
+		helper::textcolor(10);
 	}*/
 
-	DrawRect(110, 0, 45, 30,0,0);
-	textcolor(46);
-	gotoXY(125, 3);
+	helper::DrawRect(110, 0, 45, 30, 0, 0);
+	helper::textcolor(46);
+	helper::gotoXY(125, 3);
 	std::cout << "INSTRUCTIONS";
-	textcolor(11);
-	gotoXY(117, 7);
+	helper::textcolor(11);
+	helper::gotoXY(117, 7);
 	std::cout << "PRESS L TO SAVE GAME";
-	gotoXY(117, 9);
+	helper::gotoXY(117, 9);
 	std::cout << "PRESS Y TO RESTART GAME WHEN DIE";
-	gotoXY(117, 11);
+	helper::gotoXY(117, 11);
 	std::cout << "PRESS P TO PAUSE GAME";
-	textcolor(10);
+	helper::textcolor(10);
 
-	textcolor(12);
-	gotoXY(117, 14);
+	helper::textcolor(12);
+	helper::gotoXY(117, 14);
 	std::cout << "PRESS A TO MOVE TO THE LEFT";
-	gotoXY(117, 16);
+	helper::gotoXY(117, 16);
 	std::cout << "PRESS D TO MOVE TO THE RIGHT";
-	gotoXY(117, 18);
+	helper::gotoXY(117, 18);
 	std::cout << "PRESS W TO MOVE UPWARD";
-	gotoXY(117, 20);
+	helper::gotoXY(117, 20);
 	std::cout << "PRESS S TO MOVE DOWNWARD";
-	textcolor(10);
+	helper::textcolor(10);
 
-	textcolor(13);
-	gotoXY(117, 23);
-	int lev = getlevel();
+	helper::textcolor(13);
+	helper::gotoXY(117, 23);
+	int lev = getLev();
 	std::cout << "LEVEL " << lev;
-	textcolor(10);
-
-	/*for (int i = 0; i < 30; i++)
-	{
-		gotoXY(i+111, 0);
-		textcolor(9);
-		std::cout << "_";
-
-		gotoXY(i + 111, 6);
-		std::cout << "_"; 
-
-		textcolor(10);
-		
-	}*/
+	helper::textcolor(10);
 
 	for (auto x : animal)
+	{
+		x->clean();
 		x->draw();
+	}
 	for (auto x : vehicle)
+	{
+		x->clean();
 		x->draw();
+	}
+	/*for (int i=vehicle.size()-1; i>=0; i--)
+	{
+		vehicle[i]->clean();
+		vehicle[i]->draw();
+
+	}*/
 
 	if (trafficLights.size() != 0)
 	{
 		int t = trafficLights[0].getTime();
-		gotoXY(105, 17);
+		helper::gotoXY(105, 17);
 		std::cout << t << "  ";
 		char a = 220;
 
 		if (trafficLights[0].getState() == 1) // xanh
 		{
-			textcolor(10);
-			gotoXY(105, 18);
+			helper::textcolor(10);
+			helper::gotoXY(105, 18);
 			std::cout << a;
 		}
 		else if (trafficLights[0].getState() == 0)  // do
 		{
-			gotoXY(105, 18);
-			textcolor(12);
+			helper::gotoXY(105, 18);
+			helper::textcolor(12);
 			std::cout << a;
 		}
 
 		if (trafficLights.size() > 1)
 		{
-			t = trafficLights[1].getTime();
-			gotoXY(105, 11);
-			textcolor(10);
-			std::cout << t << "  ";
-			if (trafficLights[1].getState() == 1) // xanh
-			{
-				textcolor(10);
-				gotoXY(105, 12);
-				std::cout << a;
-			}
-			else if (trafficLights[1].getState() == 0)  // do
-			{
-				gotoXY(105, 12);
-				textcolor(12);
-				std::cout << a;
-			}
+			helper::gotoXY(105, 18);
+			helper::textcolor(12);
+			std::cout << a;
 		}
 
-		gotoXY(105, 19);
-		textcolor(15);
+		helper::gotoXY(105, 19);
+		helper::textcolor(15);
 		std::cout << a;
-		textcolor(10);
+		helper::textcolor(10);
 
 	}
 	player.draw();
@@ -304,7 +297,7 @@ void Game::updatePeople(char c) {
 
 void Game::update() {
 	for (auto &x : trafficLights)
-		x.change(max(10, 30 - level * 2 - rand() % 5));
+		x.change(max(10, 30 - level * 2));
 	for (auto x : vehicle) {
 		if (trafficLights.size() == 0)
 			x->move(x->getSign());
@@ -357,7 +350,7 @@ void Game::levelUp() {
 	}
 	if (level > 1) {
 		trafficLights.push_back(TrafficLights());
-		if (level > 3)
+		if (level > 5)
 			trafficLights.push_back(TrafficLights());
 	}
 }
@@ -379,8 +372,7 @@ bool Game::isDead() {
 bool Game::endGame() {
 	return player.isImpact(vehicle) || player.isImpact(animal);
 }
-
-int Game::getlevel()
+int Game::getLev()
 {
 	return level;
 }
